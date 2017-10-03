@@ -1,0 +1,42 @@
+/* * * * * * * * * * *
+ *    Color shades   *
+ * * * * * * * * * * *
+ * Light:    #00B1EF *
+ * Standard: #00A8E2 * 
+ * Darker:   #0095CB * 
+ * Darkest:  #0079A2 *
+ * Darkest:  #004962 *
+ * * * * * * * * * * */
+
+/* START Development Color Check */
+.color-shades {
+    color: #00B1EF;
+    color: #00A8E2;
+    color: #0095CB;
+    color: #0079A2;
+    color: #004962;
+}
+/* END Development Color Check */
+
+.navbar {
+    background-color: #0079A2;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+/* START Sidebar */
+#sidebar-wrapper {
+    background: #0095CB;
+}
+
+.sidebar-nav li a {
+    color: #fff;
+}
+
+.sidebar-nav > .sidebar-brand {
+    margin-top: 20px;
+    height: 64px;
+}
+/* END Sidebar */
