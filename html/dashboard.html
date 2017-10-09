@@ -1,228 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Dashboard</title>
 </head>
+
 <body>
-        <div id="sidebar" class="sidenav">
-                <img src="images/logo-white.png" width="75%" height="" alt="">
-                <hr>
-                <a href="postform.html">New Post</a>
-                <a href="#">Profile Settings</a>
-                <a href="#">Log out</a>
-        </div>
+  <div id="sidebar" class="sidenav">
+    <img src="images/logo-white.png" width="75%" height="" alt="">
+    <hr>
+    <a href="postform.html">New Post</a>
+    <a href="#">Profile Settings</a>
+    <a href="#">Log out</a>
+  </div>
 
-        <nav class="navbar bg-primary">
+  <!-- <nav class="navbar"> -->
 
-        <div id="hamburgerdiv">
-                <div id="nav-icon3" onclick="openNav()">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-
-
-                </div>
-        </div>
-      </nav>
+    <div id="hamburgerdiv">
+      <div id="nav-icon3" onclick="openNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
 
-        <script src="js/navbar.js"></script>
+      </div>
+    </div>
+    <hr>
+  </nav>
 
 
-            <div class="row justify-content-md-center">
+  <script src="js/navbar.js"></script>
 
-              <!-- From here are posts -->
-              <div class="col col-md-auto" id="showPosts">
-                <div class="container">
-
-                <div class="card-columns">
-
+<div id="main">
+  <div class="row justify-content-md-center">
+    
+        <!-- From here are posts -->
+        <div class="col col-md-auto" id="showPosts">
+          <div class="container">
+    
+            <div class="card-columns">
+    
               <!--Cards insert -->
-
+    
               <!-- Test Cards-->
               <div class="card text-black mb-3" style="max-width: 20rem;">
-                  <div class="card-header text-center bg-primary"><h4>Article Title 1</h4></div>
-                    <div class="card-body">
-                      <h4 class="card-title">This is the first post I've made</h4>
-                      <p class="card-text">This post is used to try out different styles</p>
-                    </div>
-
-
-                  <div class="card-header">
-                                    <div class="container-fluid row text-left">
-                                      <img src="images/thumbup.png" width="10%" height="10%" alt="Likes">
-                                      <h5 class="col-sm text-primary"> 420 </h5>
-                                      <a href="#">Read more</a>
-                                    </div>
-                                      <span class="badge badge-pill badge-primary">JavaScript</span>
-                                      <span class="badge badge-pill badge-primary">Memes</span>
-                                      <span class="badge badge-pill badge-warning">Yellow</span>
-                                      <span class="badge badge-pill badge-primary">JavaScript</span>
-                                      <span class="badge badge-pill badge-primary">Memes</span>
-                                      <span class="badge badge-pill badge-warning">Yellow</span>
+                <div class="card-header text-center bg-primary">
+                  <h4>Article Title 1</h4>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">This is the first post I've made</h4>
+                  <p class="card-text">This post is used to try out different styles</p>
+                </div>
+    
+    
+                <div class="card-header">
+                  <div class="container-fluid row text-left">
+                    <img src="images/thumbup.png" width="10%" height="10%" alt="Likes">
+                    <h5 class="col-sm text-primary"> 420 </h5>
+                    <a href="#">Read more</a>
                   </div>
-
+                  <span class="badge badge-pill badge-primary">JavaScript</span>
+                  <span class="badge badge-pill badge-primary">Memes</span>
+                  <span class="badge badge-pill badge-warning">Yellow</span>
+                  <span class="badge badge-pill badge-primary">JavaScript</span>
+                  <span class="badge badge-pill badge-primary">Memes</span>
+                  <span class="badge badge-pill badge-warning">Yellow</span>
+                </div>
+    
               </div>
-
-
-
+    
+    
+    
               <div class="card text-black mb-3" style="max-width: 20rem;">
-                  <div class="card-header bg-primary">Article Title 2</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Another random post</h4>
-                      <p class="card-text">This post is used to compare different style to see which looks better</p>
-                    </div>
-
-                    <div class="card-body text-right">
-                    <a href="#" class="text-right">Read more</a>
+                <div class="card-header bg-primary">Article Title 2</div>
+                <div class="card-body">
+                  <h4 class="card-title">Another random post</h4>
+                  <p class="card-text">This post is used to compare different style to see which looks better</p>
+                </div>
+    
+                <div class="card-body text-right">
+                  <a href="#" class="text-right">Read more</a>
+                </div>
+    
+                <div class="card-header">
+                  <div class="container-fluid row align-items-start">
+                    <img src="images/thumbup.png" width="10%" height="10%" alt="">
+                    <h5 class="col-sm-3 text-primary"> 360 </h5>
+    
+                    <span class="badge badge-pill badge-primary">JavaScript</span>
+                    <span class="badge badge-pill badge-primary">Memes</span>
+                    <span class="badge badge-pill badge-warning">Yellow</span>
+                    <span class="badge badge-pill badge-primary">JavaScript</span>
+                    <span class="badge badge-pill badge-primary">Memes</span>
+                    <span class="badge badge-pill badge-warning">Yellow</span>
                   </div>
-
-                  <div class="card-header">
-                                    <div class="container-fluid row align-items-start">
-                                      <img src="images/thumbup.png" width="10%" height="10%" alt="">
-                                      <h5 class="col-sm-3 text-primary"> 360 </h5>
-
-                                      <span class="badge badge-pill badge-primary">JavaScript</span>
-                                      <span class="badge badge-pill badge-primary">Memes</span>
-                                      <span class="badge badge-pill badge-warning">Yellow</span>
-                                      <span class="badge badge-pill badge-primary">JavaScript</span>
-                                      <span class="badge badge-pill badge-primary">Memes</span>
-                                      <span class="badge badge-pill badge-warning">Yellow</span>
-                                      </div>
-                  </div>
-
+                </div>
+    
               </div>
-
-
+    
+    
               <!-- End of test cards-->
-
+    
               <div class="card text-black mb-3" style="max-width: 20rem;">
-                  <div class="card-header bg-primary">Article Title 3</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Success card title</h4>
-                      <p class="card-text">Dit</p>
-                      <p class="card-text">is</p>
-                      <p class="card-text">om</p>
-                      <p class="card-text">te</p>
-                      <p class="card-text">kijken</p>
-                      <p class="card-text">hoe</p>
-                      <p class="card-text">het</p>
-                      <p class="card-text">om</p>
-                      <p class="card-text">gaat</p>
-                      <p class="card-text">met</p>
-                      <p class="card-text">lange</p>
-                      <p class="card-text">posts</p>
-                      <p class="card-text">Dit</p>
-                      <p class="card-text">is</p>
-                      <p class="card-text">het</p>
-                      <p class="card-text">eind</p>
-                      <p class="card-text">deze post want de card hieronder spaced als je er meer inzet</p>
-                    </div>
+                <div class="card-header bg-primary">Article Title 3</div>
+                <div class="card-body">
+                  <h4 class="card-title">Success card title</h4>
+                  <p class="card-text">Dit</p>
+                  <p class="card-text">is</p>
+                  <p class="card-text">om</p>
+                  <p class="card-text">te</p>
+                  <p class="card-text">kijken</p>
+                  <p class="card-text">hoe</p>
+                  <p class="card-text">het</p>
+                  <p class="card-text">om</p>
+                  <p class="card-text">gaat</p>
+                  <p class="card-text">met</p>
+                  <p class="card-text">lange</p>
+                  <p class="card-text">posts</p>
+                  <p class="card-text">Dit</p>
+                  <p class="card-text">is</p>
+                  <p class="card-text">het</p>
+                  <p class="card-text">eind</p>
+                  <p class="card-text">deze post want de card hieronder spaced als je er meer inzet</p>
+                </div>
               </div>
-
+    
               <div class="card  text-black mb-3" style="max-width: 20rem;">
-                  <div class="card-header bg-primary">Article Title 4</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Success card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                <div class="card-header bg-primary">Article Title 4</div>
+                <div class="card-body">
+                  <h4 class="card-title">Success card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
               </div>
-
+    
               <div class="card text-black mb-3" style="max-width: 20rem;">
-                  <div class="card-header bg-primary">Article Title 5</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Another random post</h4>
-                      <p class="card-text">This post is used to compare different style to see which looks better</p>
-                    </div>
-
-                    <div class="card-body text-right">
-                    <a href="#" class="text-right">Read more</a>
+                <div class="card-header bg-primary">Article Title 5</div>
+                <div class="card-body">
+                  <h4 class="card-title">Another random post</h4>
+                  <p class="card-text">This post is used to compare different style to see which looks better</p>
+                </div>
+    
+                <div class="card-body text-right">
+                  <a href="#" class="text-right">Read more</a>
+                </div>
+    
+                <div class="card-header">
+                  <div class="container-fluid row text-left">
+                    <img src="images/thumbup.png" width="10%" height="10%" alt="Likes">
+                    <h5 class="col-sm-2 text-primary"> 2017 </h5>
+                    <p class="col-lg text-primary"> Created on 28-sep-2017 </p>
                   </div>
-
-                  <div class="card-header">
-                                    <div class="container-fluid row text-left">
-                                      <img src="images/thumbup.png" width="10%" height="10%" alt="Likes">
-                                      <h5 class="col-sm-2 text-primary"> 2017 </h5>
-                                      <p class="col-lg text-primary"> Created on 28-sep-2017 </p>
-                                    </div>
-                                      <span class="badge badge-pill badge-primary">JavaScript</span>
-                                      <span class="badge badge-pill badge-primary">Memes</span>
-                                      <span class="badge badge-pill badge-warning">Yellow</span>
-                                      <span class="badge badge-pill badge-primary">JavaScript</span>
-                                      <span class="badge badge-pill badge-primary">Memes</span>
-                                      <span class="badge badge-pill badge-warning">Yellow</span>
-                  </div>
+                  <span class="badge badge-pill badge-primary">JavaScript</span>
+                  <span class="badge badge-pill badge-primary">Memes</span>
+                  <span class="badge badge-pill badge-warning">Yellow</span>
+                  <span class="badge badge-pill badge-primary">JavaScript</span>
+                  <span class="badge badge-pill badge-primary">Memes</span>
+                  <span class="badge badge-pill badge-warning">Yellow</span>
+                </div>
               </div>
-
+    
               <div class="card text-black mb-3" style="max-width: 20rem;">
-                  <div class="card-header bg-primary">Article Title 6</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Success card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                <div class="card-header bg-primary">Article Title 6</div>
+                <div class="card-body">
+                  <h4 class="card-title">Success card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
               </div>
-
+    
               <div class="card text-black mb-3" style="max-width: 20rem;">
-                  <div class="card-header bg-primary">Article Title</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Success card title</h4>
-                      <p class="card-text">Deze post is vol</p>
-
-                    </div>
-
+                <div class="card-header bg-primary">Article Title</div>
+                <div class="card-body">
+                  <h4 class="card-title">Success card title</h4>
+                  <p class="card-text">Deze post is vol</p>
+    
+                </div>
+    
               </div>
-
-
+    
+    
               <!--end of cards insert -->
-                </div>
-              </div>
-              </div>
-        <!-- Till here for posts -->
-
-
-        <!-- From here are issues -->
-                <div class="col col-md-2" id="showIssues">
-                    <div class="col"><div class="card text-black mb-3" style="max-width: 20rem;">
-                        <div class="card-header bg-primary">Issues</div>
-                          <div class="card-body">
-                            <p class="card-text">Issue 1</p>
-                            <hr>
-                            <p class="card-text">Issue 2</p>
-                            <hr>
-                            <p class="card-text">Issue 3</p>
-                          </div>
-
-
-
-
-                    </div>
-</div>
-                    <div class="col">Column</div>
-                </div>
             </div>
+          </div>
+        </div>
+        <!-- Till here for posts -->
+        <!-- <div class="col col-md-2" id="showIssues">
+          <div class="col">
+            <div class="card text-black mb-3" style="max-width: 20rem;">
+              <div class="card-header bg-primary">Issues</div>
+              <div class="card-body">
+                <p class="card-text">Issue 1</p>
+                <hr>
+                <p class="card-text">Issue 2</p>
+                <hr>
+                <p class="card-text">Issue 3</p>
+              </div>
+    
+    
+    
+    
+            </div>
+          </div>
+          <div class="col">Column</div>
+        </div> -->
+      </div>
+</div>
+  
 
-        <!-- Till here for issues -->
+    <!-- From here are issues -->
+    
 
-        <!-- Test Card -->
-        <!-- <div class="card text-black mb-3" style="max-width: 20rem;">
+  <!-- Till here for issues -->
+
+  <!-- Test Card -->
+  <!-- <div class="card text-black mb-3" style="max-width: 20rem;">
             <div class="card-header bg-primary">Article Title</div>
               <div class="card-body">
                 <h4 class="card-title">Success card title</h4>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
         </div> -->
-        <!-- end card -->
+  <!-- end card -->
 
 
 </body>
+
 </html>
