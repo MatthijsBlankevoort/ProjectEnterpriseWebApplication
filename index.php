@@ -1,4 +1,7 @@
+<?php require "config.php"; ?>
+
 <!-- Application: Info Support Connect -->
+<!-- Version: <?php echo $version; ?> -->
 
 <html>
     <head>
@@ -7,11 +10,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/vendor/simple-sidebar/1.0.0/css/simple-sidebar.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/vendor/simple-sidebar/1.0.0/css/simple-sidebar.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css">
     </head>
     <body>
 
@@ -30,7 +33,7 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="#">
-                            <img src="assets/img/logo-white.png" height="48" class="d-inline-block align-top" alt="">
+                            <img src="/assets/img/logo-white.png" height="48" class="d-inline-block align-top" alt="">
                         </a>
                     </li>
                     <li>
@@ -67,9 +70,9 @@
 
         </div>
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="assets/js/app.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/js/app.js"></script>
     </body>
 </html>
