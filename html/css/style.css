@@ -133,6 +133,10 @@
       margin-left: 10px;
       transition: .5s ease;
   }
+
+  .fixedtop{
+    position: fixed;
+  }
   #hamburgerdiv.open{
       margin-left: 250px;
       transition: .5s ease;
@@ -161,3 +165,6 @@
     color:white;
   }
 
+.navbar{
+  height: 80px;
+}
