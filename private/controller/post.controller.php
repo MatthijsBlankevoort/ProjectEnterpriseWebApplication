@@ -3,13 +3,11 @@ require_once 'private/model/post.model.php';
 class PostController{
 	private $postData;
 	private $model;
+
 	/**
 	 * PostController constructor.
-	 *
-	 * @param $data
 	 */
-	public function __construct($data) {
-		$this->setPostData($data);
+	public function __construct() {
 		$this->model = new PostModel();
 	}
 
@@ -18,6 +16,15 @@ class PostController{
 	 */
 	public function getPostData() {
 		return $this->postData;
+	}
+
+
+	public function getCategories() {
+		return $this->model->getCategories();
+	}
+
+	public function getPosts(){
+		return $this->model->readAllPost();
 	}
 
 	/**
@@ -31,21 +38,32 @@ class PostController{
 	 * This method will go through the steps of checking and sanitizing data
 	 * After that it will fire the method to insert the data in the database
 	 */
-	public function handleData(){
+	public function handleData($postData){
+		$this->setPostData($postData);
+
 		$title = $this->postData['title'];
+		$category = $this->postData['category'];
 		$content = $this->postData['content'];
+		$postType = $this->postData['postType'];
 
 		$title = htmlspecialchars($title);
-		$content = htmlspecialchars($content);
+		$category = htmlspecialchars($category);
+		$content  = htmlspecialchars($content);
+		$postType = htmlspecialchars($postType);
 
 		trim(strip_tags($title));
+		trim(strip_tags($category));
 		trim(strip_tags($content));
+		trim(strip_tags($postType));
 
 		$data = array(
 			'title' => $title,
-			'content' => $content
+			'category' => $category,
+			'content' => $content,
+			'postType' => $postType
 		);
 
 		$this->model->create($data);
+		header('location: /');
 	}
 }

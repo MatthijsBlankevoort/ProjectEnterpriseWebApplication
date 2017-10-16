@@ -19,25 +19,57 @@ require_once 'private/etc/config.php';
               post (
                 author_id,
                 title,
-                content
+                categorie,
+                content,
+                post_type
               ) VALUES (
-              	'" ."'
-                '" . 2 . "',
-                '" . $data['title'] . "',
-                '" . $data['content'] . "'
+                :authorId,
+                :title,
+                :category,
+                :content,
+                :postType
               )");
 
+				$kaas = '2';
+				$insertQuery->bindValue(':authorId', $kaas, PDO::PARAM_STR);
+				$insertQuery->bindValue(':title', $data['title'], PDO::PARAM_STR);
+				$insertQuery->bindValue(':category', $data['category'], PDO::PARAM_STR);
+				$insertQuery->bindValue(':content', $data['content'], PDO::PARAM_STR);
+				$insertQuery->bindValue(':postType', $data['postType'], PDO::PARAM_STR);
 
 
-				return $insertQuery->execute();
-			} catch( Exception $e) {
-				throw new Exception($e->getMessage());
+				$test = $insertQuery->execute();
+				if(!$test){
+					echo '<pre>';
+					print_r($insertQuery->errorInfo());
+					echo '</pre>';
+				}
+				return $test;
+			} catch( PDOException $e) {
+				echo $e;
+				die;
+//				throw new PDOException($e->getMessage());
 			}
 
 		}
 
 		public function readAllPost(){
+			try{
+				$allCategoriesQuery = $this->db->prepare("SELECT * FROM post");
+				$allCategoriesQuery->execute();
+				$result = $allCategoriesQuery;
 
+
+
+				if($result->rowCount() == 0){
+					echo 'er zijn nog geen categorieen beschikbaar';
+				}
+
+				return $result->fetchAll(PDO::FETCH_ASSOC);
+
+			} catch ( Exception $e){
+				throw new Exception($e->getMessage());
+			}
 		}
 
 		public function readPost($id){
@@ -52,7 +84,24 @@ require_once 'private/etc/config.php';
 
 		}
 
+		public function getCategories() {
+			try{
+				$allCategoriesQuery = $this->db->prepare("SELECT * FROM category");
+				$allCategoriesQuery->execute();
+				$result = $allCategoriesQuery;
 
+
+
+				if($result->rowCount() == 0){
+					echo 'er zijn nog geen categorieen beschikbaar';
+				}
+
+				return $result->fetchAll(PDO::FETCH_ASSOC);
+
+			} catch ( Exception $e){
+				throw new Exception($e->getMessage());
+			}
+		}
 
 	}
 

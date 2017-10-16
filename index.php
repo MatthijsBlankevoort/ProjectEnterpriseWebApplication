@@ -1,78 +1,145 @@
 <?php require "config.php"; ?>
-
+<?php
+    require_once "private/controller/post.controller.php";
+    $controller = new PostController();
+    $posts      = $controller->getPosts();
+?>
 <!-- Application: Info Support Connect -->
 <!-- Version: <?php echo $version; ?> -->
 
-<html>
-    <head>
-        <title>Info Support: Connect</title>
+<!DOCTYPE html>
+<html lang="en">
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
+</head>
 
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <link rel="stylesheet" type="text/css" href="/assets/vendor/simple-sidebar/1.0.0/css/simple-sidebar.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css">
-    </head>
-    <body>
+<body>
 
-        <!-- START navbar -->
-        <nav class="navbar">
-            <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </a>
-        </nav>
-        <!-- END navbar -->
+<nav class="navbar sticky-top navbar-light bg-faded">
+    <div id="hamburgerdiv" class="fixedtop">
+        <div id="nav-icon3" onclick="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
 
-        <div id="wrapper">
 
-            <!-- START sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            <img src="/assets/img/logo-white.png" height="48" class="d-inline-block align-top" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-rocket" aria-hidden="true"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> Projects</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- END sidebar -->
+        </div>
+    </div>
+    <div id="sidebar" class="sidenav">
+        <img src="assets/images/logo-white.png" width="75%" height="" alt="">
+        <hr>
+        <a href="postform.html">New Post</a>
+        <a href="#">Profile Settings</a>
+        <a href="#">Log out</a>
+    </div>
+</nav>
 
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-4 col-xs-12">
-                        1 of 3
+<!-- <nav class="navbar"> -->
+
+
+
+<?php
+foreach($posts as $post){
+
+}
+?>
+
+
+<script src="js/navbar.js"></script>
+
+<div id="main">
+    <div class="container">
+
+        <div class="row">
+			<?php foreach ( $posts as $post ) { ?>
+				<div class="col col-lg-4 col-md-6 col-sm-12">
+					<div class="card text-black mb-3" style="max-width: 20rem;">
+						<div class="card-header bg-primary">Article Title 5</div>
+						<img class="card-img-top cardimage" src="//pipsum.com/435x310.jpg" alt="Great Idea" width="100%">
+						<div class="card-body">
+							<h4 class="card-title"><?= $post['title']; ?></h4>
+							<p class="card-text"><?= $post['content'] ?></p>
+
+							<div class="card-body text-right">
+								<a href="#" class="text-right" data-toggle="modal" data-target="#myModal">Read more</a>
+							</div>
+
+							<div class="card-header">
+								<div class="container-fluid row text-left">
+									<img src="assets/images/thumbup.png" width="10%" height="10%" alt="Likes">
+									<p class="text-primary"> Created on <?= date('M g Y', strtotime($post['created_at'])); ?> </p>
+								</div>
+								<span class="badge badge-pill badge-primary">JavaScript</span>
+								<span class="badge badge-pill badge-primary">Memes</span>
+								<span class="badge badge-pill badge-warning">Yellow</span>
+								<span class="badge badge-pill badge-primary">JavaScript</span>
+								<span class="badge badge-pill badge-primary">Memes</span>
+								<span class="badge badge-pill badge-warning">Yellow</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php } ?>
+
+
+
+
+
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="col-4 col-xs-12">
-                        1 of 3
+                        <div class="modal-body">
+                            ...
                         </div>
-                        <div class="col-4 col-xs-12">
-                        1 of 3
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/assets/js/app.js"></script>
-    </body>
+
+
+        <!-- From here are issues -->
+
+
+        <!-- Till here for issues -->
+
+        <!-- Test Card -->
+        <!-- <div class="card text-black mb-3" style="max-width: 20rem;">
+			  <div class="card-header bg-primary">Article Title</div>
+				<div class="card-body">
+				  <h4 class="card-title">Success card title</h4>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+		  </div> -->
+        <!-- end card -->
+
+
+</body>
+
 </html>

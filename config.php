@@ -5,4 +5,4 @@ $db_host = "localhost";
 $db_name = "ewa";
 
 
-session_start();
+//session_start();
