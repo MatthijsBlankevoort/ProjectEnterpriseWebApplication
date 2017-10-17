@@ -154,7 +154,11 @@
     margin-right: 10px;
   }
 
-
+.card-header-title{
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
 
   /*  Issues*/
   #showIssues{

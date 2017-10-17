@@ -69,7 +69,7 @@ foreach($posts as $post){
 			<?php foreach ( $posts as $post ) { ?>
 				<div class="col col-lg-4 col-md-6 col-sm-12">
 					<div class="card text-black mb-3" style="max-width: 20rem;">
-						<div class="card-header bg-primary"><?= $post['title']; ?></div>
+						<div class="card-header card-header-title bg-primary"><?= $post['title']; ?></div>
 						<img class="card-img-top cardimage" src="//pipsum.com/435x310.jpg" alt="Great Idea" width="100%">
 						<div class="card-body">
 							<p class="card-text"><?= substr($post['content'], 0, 200); ?>...</p>
