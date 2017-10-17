@@ -60,11 +60,6 @@ require_once 'private/etc/config.php';
 				$result = $allCategoriesQuery;
 
 
-
-				if($result->rowCount() == 0){
-					echo 'er zijn nog geen categorieen beschikbaar';
-				}
-
 				return $result->fetchAll(PDO::FETCH_ASSOC);
 
 			} catch ( Exception $e){

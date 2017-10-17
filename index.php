@@ -72,10 +72,10 @@ foreach($posts as $post){
 						<div class="card-header bg-primary"><?= $post['title']; ?></div>
 						<img class="card-img-top cardimage" src="//pipsum.com/435x310.jpg" alt="Great Idea" width="100%">
 						<div class="card-body">
-							<p class="card-text"><?= $post['content'] ?></p>
+							<p class="card-text"><?= substr($post['content'], 0, 200); ?>...</p>
 
 							<div class="card-body text-right">
-								<a href="#" class="text-right" data-toggle="modal" data-target="#myModal">Read more</a>
+								<a href="#" class="text-right" onclick="showText('<?= $post['title']; ?>', '<?= $post['content']; ?>')" data-toggle="modal" data-target="#myModal">Read more</a>
 							</div>
 
 							<div class="card-header">
@@ -99,12 +99,12 @@ foreach($posts as $post){
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="modal-title">Modal title</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div id="modal-content" class="modal-body">
                             ...
                         </div>
                         <div class="modal-footer">
@@ -135,5 +135,13 @@ foreach($posts as $post){
 
 
 </body>
-
+<script type="text/javascript">
+	function showText(titel, description)
+	{
+		text1=titel;
+		text2=description
+		document.getElementById("modal-title").innerHTML = text1;
+		document.getElementById("modal-content").innerHTML = text2;
+	}
+</script>
 </html>
