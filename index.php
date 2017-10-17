@@ -69,10 +69,9 @@ foreach($posts as $post){
 			<?php foreach ( $posts as $post ) { ?>
 				<div class="col col-lg-4 col-md-6 col-sm-12">
 					<div class="card text-black mb-3" style="max-width: 20rem;">
-						<div class="card-header bg-primary">Article Title 5</div>
+						<div class="card-header bg-primary"><?= $post['title']; ?></div>
 						<img class="card-img-top cardimage" src="//pipsum.com/435x310.jpg" alt="Great Idea" width="100%">
 						<div class="card-body">
-							<h4 class="card-title"><?= $post['title']; ?></h4>
 							<p class="card-text"><?= $post['content'] ?></p>
 
 							<div class="card-body text-right">
@@ -84,12 +83,7 @@ foreach($posts as $post){
 									<img src="assets/images/thumbup.png" width="10%" height="10%" alt="Likes">
 									<p class="text-primary"> Created on <?= date('M g Y', strtotime($post['created_at'])); ?> </p>
 								</div>
-								<span class="badge badge-pill badge-primary">JavaScript</span>
-								<span class="badge badge-pill badge-primary">Memes</span>
-								<span class="badge badge-pill badge-warning">Yellow</span>
-								<span class="badge badge-pill badge-primary">JavaScript</span>
-								<span class="badge badge-pill badge-primary">Memes</span>
-								<span class="badge badge-pill badge-warning">Yellow</span>
+								<span class="badge badge-pill badge-primary"><?= $post['categorie'] ?></span>
 							</div>
 						</div>
 					</div>
