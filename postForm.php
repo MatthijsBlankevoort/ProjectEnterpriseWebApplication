@@ -27,9 +27,8 @@ $postCategories = $postController->getCategories();
 <div id="sidebar" class="sidenav">
 	<img src="assets/images/logo-white.png" width="75%" height="" alt="">
 	<hr>
-	<a href="assets/dashboard.html">Home</a>
-	<a href="#">Profile Settings</a>
-	<a href="#">Log out</a>
+	<a href="/">Home</a>
+	<a href="postform.php">New Post</a>
 </div>
 
 <div id="hamburgerdiv">

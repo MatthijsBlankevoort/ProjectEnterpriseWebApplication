@@ -43,9 +43,9 @@
     <div id="sidebar" class="sidenav">
         <img src="assets/images/logo-white.png" width="75%" height="" alt="">
         <hr>
-        <a href="postform.html">New Post</a>
-        <a href="#">Profile Settings</a>
-        <a href="#">Log out</a>
+	    <a href="/">Home</a>
+	    <a href="postform.php">New Post</a>
+
     </div>
 </nav>
 
@@ -60,7 +60,7 @@ foreach($posts as $post){
 ?>
 
 
-<script src="js/navbar.js"></script>
+<script src="assets/js/navbar.js"></script>
 
 <div id="main">
     <div class="container">
