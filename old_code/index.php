@@ -51,15 +51,6 @@
 
 <!-- <nav class="navbar"> -->
 
-
-
-<?php
-foreach($posts as $post){
-
-}
-?>
-
-
 <script src="assets/js/navbar.js"></script>
 
 <div id="main">
