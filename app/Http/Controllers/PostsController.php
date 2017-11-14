@@ -13,7 +13,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        // $posts = Post::orderby('likes', 'desc');
+        return view('pages/dashboard');   //->with('posts', $posts)
     }
 
     /**
@@ -23,7 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        // return view('');
     }
 
     /**

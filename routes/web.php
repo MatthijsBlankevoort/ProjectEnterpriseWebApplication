@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.dashboard');
-});
+Route::get('/', 'PostsController@index');
