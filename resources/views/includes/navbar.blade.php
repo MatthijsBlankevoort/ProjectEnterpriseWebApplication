@@ -12,6 +12,7 @@
     <div id="sidebar" class="sidenav">
         <img src="images/logo-white.png" width="75%" height="" alt="">
         <hr>
+        <a href="/">Dashboard</a>        
         <a href="/createpost">New Post</a>
         <a href="#">Profile Settings</a>
         <a href="#">Log out</a>
