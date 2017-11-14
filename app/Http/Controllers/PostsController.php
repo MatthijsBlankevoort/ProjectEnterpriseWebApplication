@@ -24,7 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        // return view('');
+        return view('pages/createpost');
     }
 
     /**
