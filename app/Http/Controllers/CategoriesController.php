@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoriesController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +47,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -81,4 +83,12 @@ class CategoriesController extends Controller
     {
         //
     }
+    public function getAll()
+    {
+    $category = App\Category::all();
+    foreach ($category as $category) {
+      echo $category->title;
+    }
+
+
 }
