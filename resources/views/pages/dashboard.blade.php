@@ -3,29 +3,32 @@
     <div class="container">
         <div class="row">
 
-        <?php for($i = 0; $i < 5; $i++): ?>
+
+
+            @foreach ($posts as $post)
+
+
             <div class="col col-lg-4 col-md-6 col-sm-12">
                 <div class="card text-black mb-3" style="max-width: 20rem;">
                     <div class="card-header bg-primary">
-                        Article Title 1
+
                     </div><img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
                     <div class="card-body">
-                        <h4 class="card-title">Wow! Wat een geweldig idee van Pietje Puk</h4>
-                        <p class="card-text">Pietje puk die al meerdere jaren bij de ABN AMRO werkt heeft onlangs een geweldig nieuw systeem bedacht.</p>
+                        <h4 class="card-title">{{$post->title}}</h4>
+                        <p class="card-text">{{$post->post_text}}</p>
                         <div class="card-body text-right">
                             <a class="text-right" data-target="#myModal" data-toggle="modal" href="#">Read more</a>
                         </div>
                         <div class="card-header">
                             <div class="container-fluid row text-left">
                                 <img alt="Likes" height="10%" src="/assets/images/thumbup.png" width="10%">
-                                <h5 class="text-primary">2017</h5>
-                                <p class="text-primary">Created on 28-sep-2017</p>
-                            </div><span class="badge badge-pill badge-primary">JavaScript</span> <span class="badge badge-pill badge-primary">Memes</span> <span class="badge badge-pill badge-warning">Yellow</span> <span class="badge badge-pill badge-primary">JavaScript</span> <span class="badge badge-pill badge-primary">Memes</span> <span class="badge badge-pill badge-warning">Yellow</span>
+                                <p class="text-primary">Created on {{$post->created_at}}</p>
+                            </div><span class="badge badge-pill badge-primary">{{$post->category}}</span>
                         </div>
                     </div>
                 </div>
             </div>
-        <?php endfor; ?>
+            @endforeach
 
             <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-lg" role="document">
