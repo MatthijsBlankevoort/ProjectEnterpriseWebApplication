@@ -9,9 +9,9 @@
 			</div>
 			<div class="form-group w-25">
 				<label for="categoryselect">Select Category</label>
-				<select name="category" class="form-control" id="categoryselect">
+				<select name="category" class="form-control" id="category">
 					@foreach ($categories as $category)
-						<option value="">{{$category->title}}</option>
+						<option value="{{$category->title}}">{{$category->title}}</option>
 					@endforeach
 
 				</select>
