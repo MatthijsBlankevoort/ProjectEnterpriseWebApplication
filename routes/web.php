@@ -12,5 +12,8 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/submitpost', 'PostsController@create');
+//Route::get('/submitpost', 'PostsController@create', 'CategoriesController@getAll');
+
+Route::get('/submitpost', 'CategoriesController@getAll');
+
 Route::post('/submitpost/create', 'PostsController@store');

@@ -10,8 +10,9 @@
 			<div class="form-group w-25">
 				<label for="categoryselect">Select Category</label>
 				<select name="category" class="form-control" id="categoryselect">
-					<option value=""><?php  echo CategoriesController->getAll ?></option>
-
+					@foreach ($categories as $category)
+						<option value="">{{$category->title}}</option>
+					@endforeach
 
 				</select>
 			</div>

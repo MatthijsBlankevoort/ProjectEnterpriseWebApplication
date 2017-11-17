@@ -85,9 +85,11 @@ class CategoriesController extends Controller
     }
     public function getAll()
     {
-    $category = App\Category::all();
-    foreach ($category as $category) {
-      echo $category->title;
+
+        $categories = \App\Category::all();
+
+        return view('pages/submitpost')->with('categories', $categories);
+
     }
 
 
