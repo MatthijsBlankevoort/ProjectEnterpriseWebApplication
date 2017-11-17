@@ -35,7 +35,11 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $post = new Post;
+
+        $post->Title = $request->Title;
+
+        $post->save();
     }
 
     /**
