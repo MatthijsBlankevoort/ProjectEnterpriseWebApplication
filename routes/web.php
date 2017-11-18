@@ -13,3 +13,7 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/createpost', 'PostsController@create');
+Route::get('/profile/settings', function() {
+    //TODO Hook to ProfileController
+    return view('pages.profile');    
+});

@@ -5,14 +5,14 @@
 
         <?php for($i = 0; $i < 5; $i++): ?>
             <div class="col col-lg-4 col-md-6 col-sm-12">
-                <div class="card text-black mb-3" style="max-width: 20rem;">
-                    <div class="card-header bg-primary">
+                <div class="card mb-3" style="max-width: 20rem;">
+                    <div class="card-header text-white bg-primary">
                         Article Title 1
                     </div><img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
                     <div class="card-body">
                         <h4 class="card-title">Wow! Wat een geweldig idee van Pietje Puk</h4>
                         <p class="card-text">Pietje puk die al meerdere jaren bij de ABN AMRO werkt heeft onlangs een geweldig nieuw systeem bedacht.</p>
-                        <div class="card-body text-right">
+                        <div class="card-body">
                             <a class="text-right" data-target="#myModal" data-toggle="modal" href="#">Read more</a>
                         </div>
                         <div class="card-header">

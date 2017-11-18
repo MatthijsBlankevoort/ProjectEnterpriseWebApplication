@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-light bg-faded">
     <div id="hamburgerdiv" class="fixedtop">
-        <div id="nav-icon3" onclick="openNav()">
+        <div id="nav-icon" onclick="openNav()">
         <span></span>
         <span></span>
         <span></span>
@@ -14,7 +14,7 @@
         <hr>
         <a href="/">Dashboard</a>        
         <a href="/createpost">New Post</a>
-        <a href="#">Profile Settings</a>
+        <a href="/profile/settings">Profile Settings</a>
         <a href="#">Log out</a>
     </div>
 </nav>
