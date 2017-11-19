@@ -40,8 +40,8 @@ class ProfilesController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
-        // $post->body = $request->input   ('body');
         $user->save();
+        return view('pages/profile');
     }
 
     /**
