@@ -45,7 +45,6 @@
                             {{Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password'])}}                            													
 						</div>
 					</div>
-					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}} {!! Form::close() !!}
 					<div class="col-md-4 offset-md-4 col-sm-12 mb-3">
 						<div class="input-group">
 							<!-- If slack account is not linked yet: -->
@@ -53,7 +52,9 @@
 								<i class="fa fa-slack" aria-hidden="true"></i> Link Slack</button>
 						</div>
 					</div>
-
+					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}} 
+					
+{!! Form::close() !!}
 					<hr>
 					<h6>Role</h6>
 					<p class="card-text small">Software Engineer</p>
