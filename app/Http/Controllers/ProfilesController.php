@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ProfilesController extends Controller
 {
@@ -13,7 +14,8 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('pages/myprofile');      
     }
 
     /**
@@ -23,7 +25,7 @@ class ProfilesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/profile');                
     }
 
     /**
@@ -34,7 +36,12 @@ class ProfilesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        // $post->body = $request->input   ('body');
+        $user->save();
     }
 
     /**

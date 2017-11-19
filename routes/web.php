@@ -17,3 +17,6 @@ Route::get('/profile/settings', function() {
     //TODO Hook to ProfileController
     return view('pages.profile');    
 });
+
+Route::resource('users', 'ProfilesController');
+
