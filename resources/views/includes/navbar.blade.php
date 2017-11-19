@@ -14,7 +14,7 @@
         <hr>
         <a href="/">Dashboard</a>        
         <a href="/createpost">New Post</a>
-        <a href="/profile/settings">Profile Settings</a>
+        <a href="/profile/create">Create Profile</a>
         <a href="#">Log out</a>
     </div>
 </nav>

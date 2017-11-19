@@ -15,16 +15,16 @@
 					<!-- If user has slack, display the slack icon behind his name -->
 					<h6 class="card-title">
 						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i> First Name Last Name</h6>
-					{!! Form::open(['action' => 'ProfilesController@store', 'method' => 'POST']) !!}
+					{!! Form::open(['action' => ['ProfilesController@update'], 'method' => 'POST']) !!}
 					<div class="col-md-6 offset-md-3 col-sm-12 mb-3">
 						<div class="input-group">
-                                        {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}
+							{{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}
 						</div>
 					</div>
 
 					<div class="col-md-6 offset-md-3 col-sm-12 mb-3">
 						<div class="input-group">
-                            {{Form::text('lastname', '', ['class' => 'form-control', 'placeholder' => 'Last name'])}}                            						
+							{{Form::text('lastname', '', ['class' => 'form-control', 'placeholder' => 'Last name'])}}
 						</div>
 					</div>
 
@@ -33,7 +33,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-envelope" aria-hidden="true"></i>
 							</span>
-                            {{Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'email'])}}                            													
+							{{Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'email'])}}
 						</div>
 					</div>
 
@@ -42,10 +42,10 @@
 							<span class="input-group-addon">
 								<i class="fa fa-key" aria-hidden="true"></i>
 							</span>
-                            {{Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password'])}}                            													
+							{{Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password'])}}
 						</div>
 					</div>
-					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}} {!! Form::close() !!}
+
 					<div class="col-md-4 offset-md-4 col-sm-12 mb-3">
 						<div class="input-group">
 							<!-- If slack account is not linked yet: -->
@@ -53,9 +53,10 @@
 								<i class="fa fa-slack" aria-hidden="true"></i> Link Slack</button>
 						</div>
 					</div>
-{{Form::submit('Submit', ['class' => 'btn btn-primary'])}} 
-					
-{!! Form::close() !!}
+                    {{Form::hidden('_method', 'PUT')}}
+
+					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                    {!! Form::close() !!}
 				</div>
 			</div>
 		</div>

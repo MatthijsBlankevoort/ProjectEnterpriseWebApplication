@@ -14,8 +14,8 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        
-        return view('pages/myprofile');      
+        $user = User::where('id', '5')->first();
+        return view('pages/showprofile')->with('user', $user);      
     }
 
     /**
@@ -41,7 +41,7 @@ class ProfilesController extends Controller
         $user->email = $request->input('email');
         $user->password = $request->input('password');
         $user->save();
-        return view('pages/profile');
+        return view('pages/showprofile')->with('user', $user);
     }
 
     /**
@@ -52,7 +52,8 @@ class ProfilesController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('pages/showprofile')->with('user', $user);
     }
 
     /**
@@ -75,7 +76,7 @@ class ProfilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**

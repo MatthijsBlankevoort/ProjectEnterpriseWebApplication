@@ -13,7 +13,8 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/createpost', 'PostsController@create');
-Route::get('/profile/settings', 'ProfilesController@create');  
-Route::get('/profile/edit', 'ProfilesController@edit');  
-Route::resource('users', 'ProfilesController');
+// Route::get('/profile/settings', 'ProfilesController@create');  
+// Route::get('/profile/edit', 'ProfilesController@edit');  
+// Route::get('/profile/showprofile', 'ProfilesController@index');  
+Route::resource('profile', 'ProfilesController');
 

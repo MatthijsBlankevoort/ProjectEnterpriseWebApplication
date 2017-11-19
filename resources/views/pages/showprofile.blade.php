@@ -1,4 +1,5 @@
-@extends('layout.app') @section('content')
+@extends('layout.app')
+@section('content')
 <div class="container">
 	<div class="row">
 		<div class="col align-self-center">
@@ -15,46 +16,8 @@
 					<!-- If user has slack, display the slack icon behind his name -->
 					<h6 class="card-title">
 						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i> First Name Last Name</h6>
-					{!! Form::open(['action' => 'ProfilesController@store', 'method' => 'POST']) !!}
-					<div class="col-md-6 offset-md-3 col-sm-12 mb-3">
-						<div class="input-group">
-                                        {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}
-						</div>
-					</div>
-
-					<div class="col-md-6 offset-md-3 col-sm-12 mb-3">
-						<div class="input-group">
-                            {{Form::text('lastname', '', ['class' => 'form-control', 'placeholder' => 'Last name'])}}                            						
-						</div>
-					</div>
-
-					<div class="col-md-6 offset-md-3 col-sm-12 mb-3">
-						<div class="input-group">
-							<span class="input-group-addon">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</span>
-                            {{Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'email'])}}                            													
-						</div>
-					</div>
-
-					<div class="col-md-6 offset-md-3 col-sm-12 mb-3">
-						<div class="input-group">
-							<span class="input-group-addon">
-								<i class="fa fa-key" aria-hidden="true"></i>
-							</span>
-                            {{Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password'])}}                            													
-						</div>
-					</div>
-					<div class="col-md-4 offset-md-4 col-sm-12 mb-3">
-						<div class="input-group">
-							<!-- If slack account is not linked yet: -->
-							<button class="btn btn-outline-info btn-block text-center animated fadeInUp">
-								<i class="fa fa-slack" aria-hidden="true"></i> Link Slack</button>
-						</div>
-					</div>
-					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}} 
-					
-{!! Form::close() !!}
+							<h1>Name: {{$user->name}} </h1><br>
+							<h1>Email: {{$user->email}}</h1>
 					<hr>
 					<h6>Role</h6>
 					<p class="card-text small">Software Engineer</p>
@@ -74,16 +37,9 @@
 						</div>
 					</div>
 					<hr>
-					<div class="col-md-6 offset-md-3 col-sm-12 mt-4 mb-4">
-						<div class="input-group">
-							<span class="input-group-addon">
-								<i class="fa fa-key" aria-hidden="true"></i>
-							</span>
-							<input type="password" class="form-control" placeholder="Current Password">
-						</div>
-					</div>
+		
 					<div class="col-md-4 offset-md-4 mb-4">
-						<button class="btn btn-primary animated fadeInUp">
+						<button href="/profile/edit" class="btn btn-primary animated fadeInUp">
 							<i class="fa fa-edit" aria-hidden="true"></i> Edit Profile</button>
 					</div>
 
