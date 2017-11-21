@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+ use App\Post;
 class PostsController extends Controller
 {
     /**
@@ -13,8 +13,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // $posts = Post::orderby('likes', 'desc');
-        return view('pages/dashboard');   //->with('posts', $posts)
+        $posts = \App\Post::all();
+
+        return view('pages/dashboard')->with('posts', $posts);
     }
 
     /**
@@ -24,7 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('pages/createpost');
+        return view('pages/submitpost');
     }
 
     /**
@@ -35,9 +36,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-      $post = new Post;
+        $post = new Post;
 
-        $post->Title = $request->Title;
+        $post->title = $request->title;
+        $post->category = $request->category;
+        $post->post_type = $request->post_type;
+        $post->post_text = $request->post_text;
 
         $post->save();
     }
