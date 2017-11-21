@@ -1,5 +1,5 @@
 <?php
-	require_once 'private/controller/post.controller.php'
+require_once 'private/controller/post.controller.php'
 
 ?>
 <!doctype html>
