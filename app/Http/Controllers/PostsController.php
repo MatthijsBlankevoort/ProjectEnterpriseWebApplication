@@ -44,6 +44,12 @@ class PostsController extends Controller
         $post->post_text = $request->post_text;
 
         $post->save();
+
+        $posts = \App\Post::all();
+        
+        return view('pages/dashboard')->with('posts', $posts);
+
+        
     }
 
     /**
