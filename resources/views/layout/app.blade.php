@@ -9,7 +9,9 @@
 
         @include('includes.navbar')
 
+
         <div id="main">
+            @include('includes.messages')
             @yield('content')
         </div>
 

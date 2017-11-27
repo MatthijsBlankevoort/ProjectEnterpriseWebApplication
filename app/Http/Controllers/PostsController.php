@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\Post;
+use App\Post;
+
 class PostsController extends Controller
 {
     /**
@@ -36,20 +37,27 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
+
+      $this->validate($request, [
+        'title' => 'required',
+        'post_text' => 'required'
+      ]);
+
         $post = new Post;
-        
         $post->title = $request->title;
         $post->category = $request->category;
         $post->post_type = $request->post_type;
         $post->post_text = $request->post_text;
-
         $post->save();
 
         $posts = \App\Post::all();
-        
-        return view('pages/dashboard')->with('posts', $posts);
 
-        
+
+
+        return redirect('/')->with('success', 'Post Created');
+
+
     }
 
     /**
