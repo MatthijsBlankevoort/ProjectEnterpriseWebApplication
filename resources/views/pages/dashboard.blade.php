@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-header">
                             <div class="container-fluid row text-left">
-                                <img alt="Likes" height="10%" src="/assets/images/thumbup.png" width="10%">
+                                <a href="/aaa" class="btn btn-success">Upvote</a>
                                 <p class="text-primary">Created on {{$post->created_at}}</p>
                             </div><span class="badge badge-pill badge-primary">{{$post->category}}</span>
                         </div>
