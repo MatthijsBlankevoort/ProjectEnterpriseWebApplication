@@ -19,3 +19,7 @@ Route::resource('profile', 'ProfilesController');
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
