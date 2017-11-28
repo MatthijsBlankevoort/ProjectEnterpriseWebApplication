@@ -15,7 +15,7 @@ class LikesController extends Controller
      */
     public function index()
     {
-        
+
         // return app('App\Http\Controllers\PostsController')->index();
     }
 
@@ -26,7 +26,7 @@ class LikesController extends Controller
      */
     public function create()
     {
-       
+
     }
 
     /**
@@ -35,17 +35,17 @@ class LikesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        die("tosti");
+
         $Like = new Like;
-        
+
         $Like->user_id = 24;
-        $Like->post_id = $request->id;
+        $Like->post_id = $id;
 
         $Like ->save();
-        
-        // return redirect('/aaa');
+
+         return redirect('/');
     }
 
     /**

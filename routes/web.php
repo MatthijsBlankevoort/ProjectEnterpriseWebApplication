@@ -17,8 +17,7 @@ Route::get('/createpost', 'PostsController@create');
 Route::resource('profile', 'ProfilesController');
 
 // Route::resource('likes','LikesController');
-Route::get('/likes','LikesController@store');
+Route::get('/likes/{id}','LikesController@store');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
-
