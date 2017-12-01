@@ -24,7 +24,7 @@
                         <div class="card-header">
                             <div class="container-fluid row text-left">
                                 <img alt="Likes" height="10%" src="/assets/images/thumbup.png" width="10%">
-                                <p class="text-primary">Created on {{$post->created_at}}</p>
+                                <p class="text-primary">Created on {{$post->created_at}} by {{$post->user->name}}</p>
                             </div><span class="badge badge-pill badge-primary">{{$post->category}}</span>
                         </div>
                     </div>

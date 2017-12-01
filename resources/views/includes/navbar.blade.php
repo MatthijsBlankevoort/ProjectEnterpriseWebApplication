@@ -12,15 +12,15 @@
     <div id="sidebar" class="sidenav">
         <img src="images/logo-white.png" width="75%" height="" alt="">
         <hr>
-        <a href="/">Dashboard</a>
-        <a href="/submitpost">New Post</a>
-        <a href="/profile/create">Create Profile</a>
         @guest
+            <a href="/">Dashboard</a>
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>
         @else
-            <!-- wil nog maken dat als je op je naam klikt in de navbar dat je eigen post ziet -->
-            <a href="/">{{ Auth::user()->name }}</a>
+            <a href="/home">{{ Auth::user()->name }}</a>
+            <a href="/">Dashboard</a>
+            <a href="/submitpost">New Post</a>
+            <a href="/profile/create">Create Profile</a>
 
 
 
@@ -34,7 +34,6 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
           </form>
-
 
         @endguest
       </div>

@@ -14,7 +14,25 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h3>Your Posts</h3>
+                    @if(count($posts) > 0)
+
+                          @foreach($posts as $post)
+
+
+                          <p>Title: {{$post->title}}</p>
+                          <p>Created: {{$post->created_at}}</p>
+                          <br>
+
+
+
+
+
+                          @endforeach
+                        </table>
+                    @else
+                      <p>You have no posts</p>
+                    @endif
                 </div>
             </div>
         </div>
