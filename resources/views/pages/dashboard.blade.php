@@ -13,7 +13,7 @@
             <div class="col col-lg-4 col-md-6 col-sm-12">
                 <div class="card text-black mb-3" style="max-width: 20rem;">
                     <div class="card-header bg-primary">
-
+                      <h6 class="text-white text-center">{{$post->category}}</h6>
                     </div><img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
                     <div class="card-body">
                         <h4 class="card-title">{{$post->title}}</h4>
@@ -24,8 +24,8 @@
                         <div class="card-header">
                             <div class="container-fluid row text-left">
                                 <img alt="Likes" height="10%" src="/assets/images/thumbup.png" width="10%">
-                                <p class="text-primary">Created on {{$post->created_at}} by {{$post->user->name}}</p>
-                            </div><span class="badge badge-pill badge-primary">{{$post->category}}</span>
+                                <h6 class="text-primary">Created on {{$post->created_at}} by {{$post->user->name}}</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
