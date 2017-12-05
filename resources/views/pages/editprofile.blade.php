@@ -1,9 +1,10 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+@section('content')
 <div class="container">
 	<div class="row">
 		<div class="col align-self-center">
 			<div class="card">
-				<h5 class="card-header">Profile</h5>
+				<h5 class="card-header">Edit Profile</h5>
 				<div class="card-body text-center">
 					<div class="social-profile text-center">
 						<a href="https://vlo.informatica.hva.nl/app/upload/users/1/1461/big_1461_5905195c50e8d_500747878.jpg?rand=5a0ed301eafe5"

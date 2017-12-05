@@ -321,6 +321,7 @@
       right: 0px;
       transition: .5s ease;
   }
+  
   #hamburgerdiv-right.open {
       margin-right: 250px;
       right: 0px;

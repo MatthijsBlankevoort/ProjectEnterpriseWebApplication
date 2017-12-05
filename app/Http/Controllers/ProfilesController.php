@@ -14,8 +14,7 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        $user = User::where('id', '5')->first();
-        return view('pages/showprofile')->with('user', $user);      
+        return view('pages/showprofile');      
     }
 
     /**
@@ -62,8 +61,9 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit() //$TODO: add ID
+    public function edit()
     {
+        die("tosti");
         return view('pages/editprofile');
     }
 

@@ -10,20 +10,20 @@
         </div>
     </div>
     <div id="sidebar" class="sidenav">
-        <img src="images/logo-white.png" width="75%" height="" alt="">
-        <hr>
         @guest
+            <hr>
             <a href="/">Dashboard</a>
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>
         @else
-            <a href="/home">{{ Auth::user()->name }}</a>
+            <a href="/profile">{{ Auth::user()->name }}</a>
+            <hr>
             <a href="/">Dashboard</a>
             <a href="/submitpost">New Post</a>
-            <a href="/profile/create">Create Profile</a>
+            <a href="/home">Post Overview</a>
 
 
-
+            <hr>
             <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
