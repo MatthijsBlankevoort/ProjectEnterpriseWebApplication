@@ -15,8 +15,7 @@ class LikesController extends Controller
      */
     public function index()
     {
-
-        // return app('App\Http\Controllers\PostsController')->index();
+        return app('App\Http\Controllers\PostsController')->index();
     }
 
     /**
@@ -39,7 +38,7 @@ class LikesController extends Controller
     {
 
         $Like = new Like;
-
+        
         $Like->user_id = 24;
         $Like->post_id = $id;
 
@@ -56,7 +55,9 @@ class LikesController extends Controller
      */
     public function show($id)
     {
-        //
+        $Like = \App\Like::get($id)->count();
+        
+        return $Like;
     }
 
     /**

@@ -25,6 +25,7 @@
                             <div class="container-fluid row text-left">
 
                                 <a href="{{action('LikesController@store',$post)}}" class="btn btn-success">Upvote</a>
+                                <h1>{{action('LikesController@show, $post->id')}}</h1>
                                 <p class="text-primary">Created on {{$post->created_at}}</p>
                             </div><span class="badge badge-pill badge-primary">{{$post->category}}</span>
                         </div>
