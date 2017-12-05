@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use App\Like;
 use App\Post;
+use \DB;
 
 class LikesController extends Controller
 {
@@ -38,10 +41,11 @@ class LikesController extends Controller
     {
 
         $Like = new Like;
-        
-        $Like->user_id = 24;
-        $Like->post_id = $id;
+        $Post = new Post;
 
+        $Like->user_id = auth()->user()->id;
+        $Like->post_id = $id;
+        DB::table('posts')->where('id','=', $id)->increment('likes');
         $Like ->save();
 
          return redirect('/');
@@ -55,10 +59,10 @@ class LikesController extends Controller
      */
     public function show($id)
     {
-        $Like = \App\Like::get($id)->count();
-        
-        return $Like;
+       //
     }
+    
+   
 
     /**
      * Show the form for editing the specified resource.

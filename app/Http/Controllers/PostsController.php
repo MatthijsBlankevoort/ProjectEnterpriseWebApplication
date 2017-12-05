@@ -43,7 +43,7 @@ class PostsController extends Controller
         $post->category = $request->category;
         $post->post_type = $request->post_type;
         $post->post_text = $request->post_text;
-
+        $post->likes = getLikes($request->post_id);
         $post->save();
 
         $posts = \App\Post::all();
@@ -51,6 +51,13 @@ class PostsController extends Controller
         return view('pages/dashboard')->with('posts', $posts);
 
         
+    }
+
+    public function getLikes($id)
+    {
+        $Like = \App\Like::get($id)->count();
+        
+        return $Like;
     }
 
     /**
