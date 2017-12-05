@@ -21,3 +21,7 @@ Route::get('/likes/{id}','LikesController@store');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

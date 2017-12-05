@@ -37,20 +37,30 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'post_text' => 'required'
+
+        ]);
+
+
         $post = new Post;
-        
+
         $post->title = $request->title;
         $post->category = $request->category;
         $post->post_type = $request->post_type;
         $post->post_text = $request->post_text;
+        $post->user_id = auth()->user()->id;
+
+
         $post->likes = getLikes($request->post_id);
         $post->save();
 
         $posts = \App\Post::all();
-        
+
         return view('pages/dashboard')->with('posts', $posts);
 
-        
+
     }
 
     public function getLikes($id)
