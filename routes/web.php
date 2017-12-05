@@ -13,7 +13,7 @@
 
 Route::get('/', 'PostsController@index');
 Route::get('/createpost', 'PostsController@create');
-
+Route::get('/pindakaas', 'PostsController@alreadyLiked');
 Route::resource('profile', 'ProfilesController');
 
 Route::get('/likes/{id}','LikesController@store');

@@ -15,8 +15,11 @@ class PostsController extends Controller
     public function index()
     {
         $posts = \App\Post::orderBy('created_at', 'desc')->get();
-        
-        return view('pages/dashboard')->with('posts', $posts);
+
+        $likes = Like::select('post_id')->where('user_id',auth()->user()->id)->get();
+        $likeArr=array_flatten($likes->toArray());
+
+        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr);
     }
 
     /**
@@ -60,6 +63,19 @@ class PostsController extends Controller
 
         return view('pages/dashboard')->with('posts', $posts);
 
+
+    }
+
+    public function alreadyLiked($id){
+
+        $user = auth()->user()->id;
+        $userlikes = new Like;
+
+        if($user == $userlikes->user_id && $userlikes->post_id != $id){
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
