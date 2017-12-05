@@ -322,7 +322,7 @@
       transition: .5s ease;
   }
   #hamburgerdiv-right.open {
-      margin-right: 250px;
+      margin-right: 375px;
       right: 0px;
       transition: .5s ease;
   }

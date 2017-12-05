@@ -48,11 +48,19 @@
           </div>
       </div>
       <div id="sidebar-right" class="sidenav-right">
-          <img src="images/logo-white.png" width="75%" height="" alt="">
+          <h1> Top Issues</h1>
           <hr>
-              <a href="/">Issue 1</a>
-              <a href="/">Issue 2</a>
-              <a href="/">Issue 3</a>
+          @foreach ($posts as $post )
+
+          <a style="max-width: 20rem;" href="/home">
+              <div class="card text-secondary mb-3"  >
+                  <div class="card-header bg-primary" style="width: 300px;">
+                    <h6 class="text-center">{{$post->title}}</h6>
+                  </div>
+              </div>
+            </a>
+
+          @endforeach
 
         </div>
 

@@ -29,9 +29,9 @@ $(function() {
 })
 
 function openNavRight() {
-    document.getElementById("sidebar-right").style.width = "250px";
+    document.getElementById("sidebar-right").style.width = "375px";
     document.getElementById("nav-icon-right").setAttribute( "onclick", "closeNavRight()");
-    document.getElementById("main-right").style.marginright = "250px";
+    document.getElementById("main-right").style.marginright = "375px";
 }
 
 function closeNavRight() {
