@@ -16,7 +16,6 @@
 					<!-- If user has slack, display the slack icon behind his name -->
 					<h6 class="card-title">
 						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i> First Name Last Name</h6>
-					{!! Form::open(['action' => ['ProfilesController@update'], 'method' => 'POST']) !!}
 					<div class="col-md-6 offset-md-3 col-sm-12 mb-3">
 						<div class="input-group">
 							{{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name'])}}

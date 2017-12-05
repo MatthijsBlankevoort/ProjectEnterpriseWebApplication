@@ -63,7 +63,6 @@ class ProfilesController extends Controller
      */
     public function edit()
     {
-        die("tosti");
         return view('pages/editprofile');
     }
 

@@ -14,8 +14,8 @@
 Route::get('/', 'PostsController@index');
 Route::get('/createpost', 'PostsController@create');
 
-Route::resource('/profile', 'ProfilesController');
-Route::resource('/profile/edit/', 'ProfilesController@edit');
+Route::get('/profile', 'ProfilesController@index');
+Route::get('/profile/edit', 'ProfilesController@edit');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
