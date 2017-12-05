@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
       <div class="col col col-md-8 offset-md-2 align-self-center">
-    <div class="card  text-center">
+    <div class="card card-outline-primary  text-center">
       <h5 class="card-header bg-primary text-white">Register</h5>
       <div class="card-body ">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">

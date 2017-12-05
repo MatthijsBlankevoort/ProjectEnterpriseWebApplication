@@ -37,6 +37,24 @@
 
         @endguest
       </div>
+      <div id="hamburgerdiv-right" class="fixedtop">
+          <div id="nav-icon-right" onclick="openNavRight()">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+
+          </div>
+      </div>
+      <div id="sidebar-right" class="sidenav-right">
+          <img src="images/logo-white.png" width="75%" height="" alt="">
+          <hr>
+              <a href="/">Issue 1</a>
+              <a href="/">Issue 2</a>
+              <a href="/">Issue 3</a>
+
+        </div>
 
         <!-- <ul class="nav navbar-nav navbar-right"> -->
             <!-- Authentication Links -->
