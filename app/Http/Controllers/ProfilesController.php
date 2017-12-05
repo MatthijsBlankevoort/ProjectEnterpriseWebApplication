@@ -75,7 +75,32 @@ class ProfilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'current-password' => 'required'
+        ]);
+
+        $validate_pass = DB::table('users')
+                            ->select('password')
+                            ->where('id', Auth::user()->id)
+                            ->first();
+
+        if ($validate_pass === Hash::check($request->current_password)) {
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+
+            auth()->user()->name = $request->name;
+            auth()->user()->email = $request->email;
+
+            $user->save();
+        } else {
+            die("Invalid Password");
+            //Invalid password
+        }
+
+        return view('pages/profile');
     }
 
     /**
