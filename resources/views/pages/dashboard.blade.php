@@ -17,7 +17,7 @@
                     </div><img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
                     <div class="card-body">
                         <h4 class="card-title">{{$post->title}}</h4>
-                        <p class="card-text">{{$snippet}}</p>
+                        <p class="card-text">{!!$snippet!!}</p>
                         <div class="card-body text-right">
                             <a class="text-right" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#">Read more</a>
                         </div>

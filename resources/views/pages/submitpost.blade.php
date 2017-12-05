@@ -39,7 +39,7 @@
 
 			<div class="form-group w-75">
 				<label for="exampleTextarea">Post Description</label>
-				<textarea name="post_text" class="form-control" id="post_text" rows="9"></textarea>
+				<textarea name="post_text" class="form-control" id="article-ckeditor" rows="9"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="imageInput">Image Input</label>
