@@ -16,11 +16,11 @@ $posts = \App\Http\Controllers\PostsController::getIssues();
       </div>
 
       <div id="issueslist" class="sidenav-right">
-          <h1> Top Issues</h1>
+          <h1> Recent Issues</h1>
           <hr>
 
           @foreach ($posts as $post)
-            @if($post->post_type == '0')
+            @if($post->post_type == '1')
           <a style="max-width: 20rem;" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#">
               <div class="card text-secondary mb-3"  >
                   <div class="card-header bg-primary" style="width: 300px;">
@@ -34,3 +34,12 @@ $posts = \App\Http\Controllers\PostsController::getIssues();
 
 
         </div>
+
+        <script>
+
+            let modal = function (title, text){
+                document.getElementById('modalTitle').innerHTML = title;
+                document.getElementById('modalBody').innerHTML = text;
+            }
+
+        </script>
