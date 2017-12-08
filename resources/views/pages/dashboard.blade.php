@@ -14,7 +14,11 @@
                 <div class="card text-black mb-3" style="max-width: 20rem;">
                     <div class="card-header bg-primary">
 
-                    </div><img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
+                    @if ($post->image)
+                  </div><a href="/images/{{$post->image}}"><img alt="Great Idea" class="card-img-top cardimage" src="{{ asset('images/' . $post->image) }}" width="100%"></a>
+                    @else
+                  </div><img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
+                    @endif
                     <div class="card-body">
                         <h4 class="card-title">{{$post->title}}</h4>
                         <p class="card-text">{!!$snippet!!}</p>

@@ -2,7 +2,7 @@
 @section('content')
     <div id="main">
 	<div class="container">
-		<form action="/submitpost/create" method="post">
+		<form action="/submitpost/create" method="post" enctype="multipart/form-data">
 			<div class="form-group w-50">
 				<label for="posttitle">Post Title</label>
 				<input name="title" type="text" class="form-control" id="posttitle">
@@ -41,11 +41,11 @@
 				<label for="exampleTextarea">Post Description</label>
 				<textarea name="post_text" class="form-control" id="article-ckeditor" rows="9"></textarea>
 			</div>
-			<div class="form-group">
-				<label for="imageInput">Image Input</label>
-				<input type="file" class="form-control-file" id="imageInput" aria-describedby="fileHelp">
-				<small id="fileHelp" class="form-text text-muted">Add JPEG, PNG or GIF images.</small>
-			</div>
+
+      {{Form::label('featured_image', 'Upload Image')}}
+      {{Form::file('featured_image')}}
+
+
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
