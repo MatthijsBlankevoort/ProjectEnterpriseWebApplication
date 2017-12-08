@@ -37,6 +37,7 @@
 
         @endguest
       </div>
+
       <div id="hamburgerdiv-right" class="fixedtop">
           <div id="nav-icon-right" onclick="openNavRight()">
           <span></span>
@@ -51,16 +52,23 @@
       <div id="sidebar-right" class="sidenav-right">
           <h1> Top Issues</h1>
           <hr>
+<?php
+use \App\Http\Controllers\PostsController;
+$posts = \App\Http\Controllers\PostsController::getIssues();
 
-
-          <a style="max-width: 20rem;" href="/home">
+ ?>
+          @foreach ($posts as $post)
+            @if($post->post_type == '1')
+          <a style="max-width: 20rem;" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#">
               <div class="card text-secondary mb-3"  >
                   <div class="card-header bg-primary" style="width: 300px;">
-                    <h6 class="text-center"></h6>
+                    <h6 class="text-center">{{$post->title}}</h6>
                   </div>
               </div>
             </a>
+            @endif
 
+            @endforeach
 
 
         </div>
