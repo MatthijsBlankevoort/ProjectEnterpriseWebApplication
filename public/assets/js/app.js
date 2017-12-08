@@ -22,20 +22,21 @@ function closeNav() {
 $(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
-    $('#nav-icon-right').click(function() {
+    $('#issues-icon').click(function() {
         $(this).toggleClass('open');
-        $("#hamburgerdiv-right").toggleClass("open");
+        $("#hamburgerdiv-issues").toggleClass("open");
     });
 })
 
-function openNavRight() {
-    document.getElementById("sidebar-right").style.width = "375px";
-    document.getElementById("nav-icon-right").setAttribute( "onclick", "closeNavRight()");
-    document.getElementById("main-right").style.marginright = "375px";
+function openIssues() {
+    document.getElementById("issueslist").style.width = "375px";
+    document.getElementById("issues-icon").setAttribute( "onclick", "closeIssues()");
+    document.getElementById("main").style.marginRight = "375px";
 }
 
-function closeNavRight() {
-    document.getElementById("sidebar-right").style.width = "0";
-    document.getElementById("nav-icon-right").setAttribute( "onclick", "openNavRight()");
-    document.getElementById("main-right").style.marginRight = "0px";
+function closeIssues() {
+    document.getElementById("issueslist").style.width = "0";
+    document.getElementById("issues-icon").setAttribute( "onclick", "openIssues()");
+    document.getElementById("main").style.marginRight = "0px";
+    document.getElementById("main").style.marginLeft = "0px";
 }

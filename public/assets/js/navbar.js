@@ -12,16 +12,16 @@ function closeNav() {
 
 
 }
-function openNavRight() {
-    document.getElementById("sidebar-right").style.width = "375px";
+function openIssues() {
+    document.getElementById("issueslist").style.width = "375px";
     // document.getElementById("hamburgerdiv").style.marginLeft = "250px";
-    document.getElementById("nav-icon-right").setAttribute( "onclick", "closeNav()");
+    document.getElementById("issues-icon").setAttribute( "onclick", "closeNav()");
     document.getElementById("main-right").style.marginLeft = "375px";
 }
-function closeNavRight() {
-    document.getElementById("sidebar-right").style.width = "0";
+function closeIssues() {
+    document.getElementById("issueslist").style.width = "0";
     // document.getElementById("hamburgerdiv").style.marginLeft = "0px";
-    document.getElementById("nav-icon-right").setAttribute( "onclick", "openNav()");
+    document.getElementById("issues-icon").setAttribute( "onclick", "openNav()");
     document.getElementById("main-right").style.marginLeft = "0px";
 
 
