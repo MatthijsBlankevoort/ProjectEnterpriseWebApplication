@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\Post;
- use App\Like;
+use App\Post;
+use App\Like;
 class PostsController extends Controller
 {
     /**
@@ -56,12 +56,14 @@ class PostsController extends Controller
         $post->user_id = auth()->user()->id;
 
 
-        $post->likes = getLikes($request->post_id);
+        //$post->likes = self::getLikes($request->post_id);
+        $post->likes = 0;
         $post->save();
 
         $posts = \App\Post::all();
 
-        return view('pages/dashboard')->with('posts', $posts);
+        //return view('pages/dashboard')->with('posts', $posts);
+        return redirect('/');
 
 
     }
@@ -82,7 +84,6 @@ class PostsController extends Controller
     public function getLikes($id)
     {
         $Like = \App\Like::get($id)->count();
-        
         return $Like;
     }
 
@@ -129,5 +130,13 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function sortBy()
+    {
+     $posts = \App\Post::orderBy('likes', 'desc')->get();
+     $likes = Like::select('post_id')->where('user_id',auth()->user()->id)->get();
+     $likeArr=array_flatten($likes->toArray());
+     return view('pages/dashboard')->with('posts', $posts)->with('likes', $likeArr);
     }
 }

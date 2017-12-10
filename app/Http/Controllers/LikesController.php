@@ -28,7 +28,7 @@ class LikesController extends Controller
      */
     public function create()
     {
-
+      //
     }
 
     /**
@@ -61,8 +61,8 @@ class LikesController extends Controller
     {
        //
     }
-    
-   
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -84,7 +84,10 @@ class LikesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $currentUser = auth()->user()->id;
+       DB::table('posts')->where('id','=', $id)->decrement('likes');
+       DB::table('post_vote')->where('post_id','=',$id)->where('user_id', '=', $currentUser)->delete();
+       return redirect('/');
     }
 
     /**
@@ -96,5 +99,6 @@ class LikesController extends Controller
     public function destroy($id)
     {
         //
+
     }
 }

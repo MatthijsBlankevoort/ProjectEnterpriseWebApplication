@@ -12,12 +12,14 @@
 */
 
 Route::get('/', 'PostsController@index');
+Route::get('/sorted', 'PostsController@sortBy');
 Route::get('/createpost', 'PostsController@create');
-Route::get('/pindakaas', 'PostsController@alreadyLiked');
+//Route::get('/pindakaas', 'PostsController@alreadyLiked');
 Route::resource('profile', 'ProfilesController');
 
-Route::get('/likes/{id}','LikesController@store');
-// Route::resource('Likes', 'LikesController');
+Route::get('/like/insert/{id}','LikesController@store');
+Route::get('/like/update/{id}','LikesController@update');
+//Route::resource('Likes', 'LikesController');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');

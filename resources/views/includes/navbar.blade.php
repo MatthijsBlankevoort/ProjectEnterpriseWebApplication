@@ -36,7 +36,31 @@
           </form>
 
         @endguest
+
       </div>
+
+      <!-- ---------------------------------------------------->
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort By
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a href="{{ url('/sorted') }}" class="btn btn-block btn-lg">Likes</a>
+          <a href="{{ url('/') }}" class="btn btn-block btn-lg">Most Recent</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+
+      <!-- <div class="form-group" style="width: 10%;">
+        <label for="SortBy">Sort By</label>
+        <select name="Sort" class="form-control" id="Sort">
+
+            <option value="{{action('PostsController@sortBy')}}">Most Liked</option>
+
+
+        </select>
+      </div> -->
 
         <!-- <ul class="nav navbar-nav navbar-right"> -->
             <!-- Authentication Links -->

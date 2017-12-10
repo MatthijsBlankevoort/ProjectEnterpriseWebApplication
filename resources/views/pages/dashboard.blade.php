@@ -27,6 +27,9 @@
 								@if(!in_array($post->id, $likes))
 								<a href="{{action('LikesController@store',$post)}}" class="btn fa fa-thumbs-up fa-2x"></a>
 								@endif
+								@if(in_array($post->id, $likes))
+								<a href="{{action('LikesController@update',$post)}}" class="btn fa fa-thumbs-down fa-2x"></a>
+								@endif
 								<h1>{{$post->likes}}</h1>
 								<p class="text-primary">Created on {{$post->created_at}}</p>
 							</div>
