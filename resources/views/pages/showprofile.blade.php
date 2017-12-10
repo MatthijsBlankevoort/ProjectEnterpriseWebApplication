@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('content')
 <div class="container">
 	<div class="row">
@@ -37,7 +37,7 @@
 						</div>
 					</div>
 					<hr>
-		
+
 					<div class="col-md-4 offset-md-4 mb-4">
 						<button href="/profile/edit" class="btn btn-primary animated fadeInUp">
 							<i class="fa fa-edit" aria-hidden="true"></i> Edit Profile</button>
