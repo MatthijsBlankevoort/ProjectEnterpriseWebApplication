@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use App\User;
 
 class ProfilesController extends Controller
@@ -73,34 +75,48 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+
+        //Validate that the required information are filled in.
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
-            'current-password' => 'required'
+            'current_password' => 'required'
         ]);
 
-        $validate_pass = DB::table('users')
-                            ->select('password')
-                            ->where('id', Auth::user()->id)
-                            ->first();
+        //Validates that the posted password matches the database hashed password.
+        if (Hash::check($request->current_password, auth()->user()->password)) {
 
-        if ($validate_pass === Hash::check($request->current_password)) {
-            $user = new User;
-            $user->name = $request->name;
-            $user->email = $request->email;
+            //Searches for the user in the database by id.
+            $user = User::where('id', auth()->user()->id)->first();
 
-            auth()->user()->name = $request->name;
-            auth()->user()->email = $request->email;
+            //Changes the name and email to the new posted name and email.
+            //Note: On production scale we need to revalidate the new email by sending a verification email.
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            
+            //Checks if a new password is requested.
+            if (isset($request->new_password) && isset($request->repeat_password)) {
+                if ($request->new_password === $request->repeat_password) {
+                    //Hash the new password so we can put it into the database.
+                    $user->password = Hash::make($request->new_password);
+                } else {
+                    //Occurs if the user filled the new and repeat password incorrectly.
+                    return redirect('/profile/edit')->with('message', 'New and repeat password do not match.');
+                }
+            }
 
-            $user->save();
+            //Directly updates the $request variable so the next page
+            //will load with the new values rather than the old one.
+            $user->update($request->all());
+
         } else {
-            die("Invalid Password");
-            //Invalid password
+            //Occurs when the password is invalid.
+            return redirect('/profile/edit')->with('message', 'Invalid password given.');
         }
-
-        return view('pages/profile');
+        //Occurs when the user succesfully updated his profile.
+        return redirect('/profile')->with('message', 'Account has succesfully been updated!');
     }
 
     /**

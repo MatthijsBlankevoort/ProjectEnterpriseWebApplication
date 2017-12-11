@@ -1,3 +1,9 @@
+@if (session('message'))
+
+<div class="alert alert-info"><i class="fa fa-info-circle" aria-hidden="true"></i> {{ session('message') }}</div>
+
+@endif
+
 <nav class="navbar sticky-top navbar-light bg-faded">
     <div id="hamburgerdiv" class="fixedtop">
         <div id="nav-icon" onclick="openNav()">

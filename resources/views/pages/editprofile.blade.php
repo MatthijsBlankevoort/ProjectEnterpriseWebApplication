@@ -40,7 +40,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
-							{{Form::password('new-password', ['class' => 'form-control', 'placeholder' => 'New password'])}}
+							{{Form::password('new_password', ['class' => 'form-control', 'placeholder' => 'New password'])}}
 						</div>
 					</div>
 
@@ -49,7 +49,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
-							{{Form::password('repeat-password', ['class' => 'form-control', 'placeholder' => 'Repeat password'])}}
+							{{Form::password('repeat_password', ['class' => 'form-control', 'placeholder' => 'Repeat password'])}}
 						</div>
 					</div>
 
@@ -58,7 +58,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-key" aria-hidden="true"></i>
 							</span>
-							{{Form::password('current-password', ['class' => 'form-control', 'placeholder' => 'Current password', 'required'])}}
+							{{Form::password('current_password', ['class' => 'form-control', 'placeholder' => 'Current password', 'required'])}}
 						</div>
 					</div>
 
@@ -72,8 +72,7 @@
 							-->
 						</div>
 					</div>
-                    {{Form::hidden('_method', 'PUT')}}
-
+					{{ csrf_field() }}
 					{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                     </form>
 				</div>
