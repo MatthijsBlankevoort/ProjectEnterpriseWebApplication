@@ -2,20 +2,13 @@
 @section('content')
     <div id="main">
 	<div class="container">
-		<form action="/submitpost/create" method="post" enctype="multipart/form-data">
+		{!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'files' => 'true']) !!}
 			<div class="form-group w-50">
-				<label for="posttitle">Post Title</label>
-				<input name="title" type="text" class="form-control" id="posttitle">
+				    {{Form::label('title', 'Title')}}
+            {{Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
 			</div>
-			<div class="form-group w-25">
-				<label for="categoryselect">Select Category</label>
-				<select name="category" class="form-control" id="category">
-					@foreach ($categories as $category)
-						<option value="{{$category->title}}">{{$category->title}}</option>
-					@endforeach
 
-				</select>
-			</div>
+
 
 
 			<fieldset class="form-group">
@@ -37,19 +30,25 @@
 
 			</fieldset>
 
-			<div class="form-group w-75">
+			<!-- <div class="form-group w-75">
+        {{Form::label('exampleTextarea', 'Post Description')}}
+        {{Form::text('post_text', $post->post_text, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+			</div> -->
+
+      <div class="form-group w-75">
 				<label for="exampleTextarea">Post Description</label>
-				<textarea name="post_text" class="form-control" id="article-ckeditor" rows="9"></textarea>
+				<textarea name="post_text" class="form-control" id="article-ckeditor" rows="9">
+          {{$post->post_text}}
+        </textarea>
 			</div>
 
       <div class="form-group">
         {{Form::file('featured_image')}}
       </div>
 
-      <div class="form-group">
-  			<button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-		</form>
+      {{ Form::hidden('_method', 'PUT') }}
+			<button type="submit" class="btn btn-primary">Submit</button>
+		{!! Form::close() !!}
 	</div>
 
 </div>

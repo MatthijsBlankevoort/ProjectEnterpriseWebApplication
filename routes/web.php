@@ -18,6 +18,7 @@ Route::resource('profile', 'ProfilesController');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
+Route::resource('posts', 'PostsController');
 
 Auth::routes();
 

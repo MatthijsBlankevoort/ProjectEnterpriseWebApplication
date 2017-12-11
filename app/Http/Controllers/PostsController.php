@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
  use App\Post;
  use Image;
+ use Storage;
 class PostsController extends Controller
 {
     /**
@@ -39,7 +40,8 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'post_text' => 'required'
+            'post_text' => 'required',
+            'featured_image' => 'sometimes|image'
 
         ]);
 
@@ -92,7 +94,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('pages.edit')->with('post', $post);
     }
 
     /**
@@ -104,8 +107,45 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+      $this->validate($request, [
+          'title' => 'required',
+          'post_text' => 'required',
+          'featured_image' => 'image'
+
+      ]);
+
+
+      $post = Post::find($id);
+
+      $post->title = $request->title;
+      $post->category = $request->category;
+      $post->post_type = $request->post_type;
+      $post->post_text = $request->post_text;
+      $post->user_id = auth()->user()->id;
+
+      //updaten image
+      if($request->hasFile('featured_image')) {
+        //add new
+        $image = $request->file('featured_image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $location = public_path('images/' . $filename);
+        Image::make($image)->save($location);
+        $oldFilename = $post->image;
+        //update to database
+        $post->image = $filename;
+        //delete old
+        Storage::delete($oldFilename);
+
+      }
+
+      $post->save();
+
+      $posts = \App\Post::all();
+
+      return redirect('/home')->with('success', 'Post Updated');
+
+
+  }
 
     /**
      * Remove the specified resource from storage.
@@ -115,6 +155,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        Storage::delete($post->image);
+        return redirect('/home')->with('success', 'Post Removed');
     }
 }
