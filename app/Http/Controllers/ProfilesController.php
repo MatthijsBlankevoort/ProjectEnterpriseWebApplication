@@ -60,11 +60,9 @@ class ProfilesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
-    {
+    public function edit() {
         return view('pages/editprofile');
     }
 
@@ -72,8 +70,8 @@ class ProfilesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return \Illuminate\Support\Facades\View;
      */
     public function update(Request $request)
     {
@@ -117,16 +115,5 @@ class ProfilesController extends Controller
         }
         //Occurs when the user succesfully updated his profile.
         return redirect('/profile')->with('message', 'Account has succesfully been updated!');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
