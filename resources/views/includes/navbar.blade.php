@@ -1,3 +1,9 @@
+@if (session('message'))
+
+<div class="alert alert-info"><i class="fa fa-info-circle" aria-hidden="true"></i> {{ session('message') }}</div>
+
+@endif
+
 <nav class="navbar sticky-top navbar-light bg-faded">
     <div id="hamburgerdiv" class="fixedtop">
         <div id="nav-icon" onclick="openNav()">
@@ -10,20 +16,20 @@
         </div>
     </div>
     <div id="sidebar" class="sidenav">
-        <img src="images/logo-white.png" width="75%" height="" alt="">
-        <hr>
         @guest
+            <hr>
             <a href="/">Dashboard</a>
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>
         @else
-            <a href="/home">{{ Auth::user()->name }}</a>
+            <a href="/profile">{{ Auth::user()->name }}</a>
+            <hr>
             <a href="/">Dashboard</a>
             <a href="/submitpost">New Post</a>
-            <a href="/profile/create">Create Profile</a>
+            <a href="/home">Post Overview</a>
 
 
-
+            <hr>
             <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -92,4 +98,3 @@
 
 
     </div> -->
-</nav>

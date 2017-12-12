@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 ">
             <div class="panel panel-default">
 
 
@@ -14,28 +13,68 @@
                         </div>
                     @endif
 
-                    <h3>Your Posts</h3>
+
+                    <div class="card text-center">
+                      <h5 class="card-header">Your Posts</h5>
+                      <div class="card-body">
                     @if(count($posts) > 0)
 
+                    <div class="container">
+                        <div class="row">
                           @foreach($posts as $post)
 
-
-                          <p>Title: {{$post->title}}</p>
-                          <p>Created: {{$post->created_at}}</p>
-                          <br>
-
-
+                          <div class = "col col-lg-6 col-md-12 col-sm-12">
+                          <a class="card text-black card-outline-primary mb-3 button" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#" >
+                              <div class="card-header bg-primary">
+                                <h6 class="text-white text-center">{{$post->title}}</h6>
+                              </div>
+                          <p class = "text-center">Created: {{$post->created_at}}</p>
+                          <p class = "text-center">Category: {{$post->category}}</p>
+                        </a>
+                      </div>
 
 
 
                           @endforeach
-                        </table>
+                          </div>
+                          </div>
+
                     @else
                       <p>You have no posts</p>
                     @endif
+
+                </div>
                 </div>
             </div>
         </div>
+
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">Modal title</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
+
+<script>
+
+    let modal = function (title, text){
+        document.getElementById('modalTitle').innerHTML = title;
+        document.getElementById('modalBody').innerHTML = text;
+    }
+
+</script>
 @endsection

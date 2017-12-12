@@ -17,7 +17,12 @@
 <body>
     <div id="app">
         @include('includes.messages')
+        <nav class="navbar sticky-top navbar-light bg-faded">
         @include('includes.navbar')
+        @if(Request::is('/'))
+        @include('includes.issueSection')
+        @endif
+      </nav>
         <div id="main">
           @yield('content')
         </div>
