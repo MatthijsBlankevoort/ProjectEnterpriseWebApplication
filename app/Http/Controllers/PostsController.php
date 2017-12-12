@@ -18,6 +18,12 @@ class PostsController extends Controller
         return view('pages/dashboard')->with('posts', $posts);
     }
 
+    public static function getIssues()
+    {
+        $posts = \App\Post::orderBy('created_at', 'desc')->get();
+        return $posts;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
