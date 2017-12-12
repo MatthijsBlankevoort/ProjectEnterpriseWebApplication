@@ -15,9 +15,9 @@
 
 					</div>
 					@if ($post->image)
-						</div><a href="/images/{{$post->image}}"><img alt="Great Idea" class="card-img-top cardimage" src="{{ asset('assets/images/' . $post->image) }}" width="100%"></a>
+						<a href="/images/{{$post->image}}"><img alt="Great Idea" class="card-img-top cardimage" src="{{ asset('assets/images/' . $post->image) }}" width="100%"></a>
 						@else
-					</div><img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
+					<img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
 					@endif
 
 			<div class="card-body">
