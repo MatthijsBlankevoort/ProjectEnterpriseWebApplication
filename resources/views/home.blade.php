@@ -23,15 +23,30 @@
                         <div class="row">
                           @foreach($posts as $post)
 
-                          <div class = "col col-lg-6 col-md-12 col-sm-12">
-                          <a class="card text-black card-outline-primary mb-3 button" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#" >
+                          <div class ="col col-lg-6 col-md-12 col-sm-12">
+
+
+                          <div class="card text-black card-outline-primary mb-3 button" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#" >
                               <div class="card-header bg-primary">
                                 <h6 class="text-white text-center">{{$post->title}}</h6>
                               </div>
-                          <p class = "text-center">Created: {{$post->created_at}}</p>
-                          <p class = "text-center">Category: {{$post->category}}</p>
-                        </a>
+                              <p>Title: {{$post->title}}</p>
+                              <p>Created: {{$post->created_at}}</p>
+                              <div class="">
+                                  {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => ''])!!}
+                                  {{Form::hidden('_method', 'DELETE')}}
+                                  {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                  {!!Form::close()!!}
+
+
+                                  <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
+                              </div>
+
+                          </div>
+
                       </div>
+
+
 
 
 

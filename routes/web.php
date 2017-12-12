@@ -26,6 +26,7 @@ Route::get('/like/update/{id}','LikesController@update');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
+Route::resource('posts', 'PostsController');
 
 Auth::routes();
 

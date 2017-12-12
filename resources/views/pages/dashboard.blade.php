@@ -38,7 +38,7 @@
 					</div>
 				</div>
 			</div>
-			@endforeach
+		@endforeach
 
 			<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
 				<div class="modal-dialog modal-lg" role="document">
