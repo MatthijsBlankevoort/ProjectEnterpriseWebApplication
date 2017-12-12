@@ -57,7 +57,7 @@ class PostsController extends Controller
         if($request->hasFile('featured_image')) {
           $image = $request->file('featured_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/' . $filename);
+          $location = public_path('assets/images/' . $filename);
           Image::make($image)->save($location);
 
           //->resize(200, 100)
@@ -128,7 +128,7 @@ class PostsController extends Controller
         //add new
         $image = $request->file('featured_image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
-        $location = public_path('images/' . $filename);
+        $location = public_path('assets/images/' . $filename);
         Image::make($image)->save($location);
         $oldFilename = $post->image;
         //update to database
