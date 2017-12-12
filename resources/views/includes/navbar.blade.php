@@ -46,17 +46,24 @@
       </div>
 
       <!-- ---------------------------------------------------->
-      <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sort By
-        </a>
+    @guest
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a href="{{ url('/sorted') }}" class="btn btn-block btn-lg">Likes</a>
-          <a href="{{ url('/') }}" class="btn btn-block btn-lg">Most Recent</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+    @else
+        @if(Request::is('/') || Request::is('sorted'))
+           <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sort By
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a href="{{ url('/sorted') }}" class="btn btn-block btn-lg">Likes</a>
+                <a href="{{ url('/') }}" class="btn btn-block btn-lg">Most Recent</a>
+                {{--<a class="dropdown-item" href="#">Something else here</a>--}}
+            </div>
         </div>
-      </div>
+        @endif
+    @endguest
+
 
       <!-- <div class="form-group" style="width: 10%;">
         <label for="SortBy">Sort By</label>

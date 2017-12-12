@@ -21,7 +21,7 @@ $posts = \App\Http\Controllers\PostsController::getIssues();
 
           @foreach ($posts as $post)
             @if($post->post_type == '1')
-          <a style="max-width: 20rem;" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#">
+          <a style="max-width: 20rem;" data-target="#myModal{{$post->id}}" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#">
               <div class="card text-secondary mb-3"  >
                   <div class="card-header bg-primary" style="width: 300px;">
                     <h6 class="text-center">{{$post->title}}</h6>

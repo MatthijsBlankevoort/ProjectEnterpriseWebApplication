@@ -19,7 +19,7 @@
         @include('includes.messages')
         <nav class="navbar sticky-top navbar-light bg-faded">
         @include('includes.navbar')
-        @if(Request::is('/'))
+        @if(Request::is('/') || Request::is('sorted'))
         @include('includes.issueSection')
         @endif
       </nav>

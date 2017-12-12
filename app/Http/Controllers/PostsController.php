@@ -20,7 +20,7 @@ class PostsController extends Controller
     {
         $posts = \App\Post::orderBy('created_at', 'desc')->get();
 
-        $likes = Like::select('post_id')->where('user_id',auth()->user()->id)->get();
+        $likes = Like::select('post_id')->get();
         $likeArr=array_flatten($likes->toArray());
 
         return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr);
@@ -198,7 +198,7 @@ class PostsController extends Controller
     public function sortBy()
     {
      $posts = \App\Post::orderBy('likes', 'desc')->get();
-     $likes = Like::select('post_id')->where('user_id',auth()->user()->id)->get();
+     $likes = Like::select('post_id')->get();
      $likeArr=array_flatten($likes->toArray());
      return view('pages/dashboard')->with('posts', $posts)->with('likes', $likeArr);
     }

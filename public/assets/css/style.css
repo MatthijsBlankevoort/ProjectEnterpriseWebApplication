@@ -38,6 +38,10 @@
     margin-left: 50px;
 }
 
+.sticky-top{
+    z-index: 1!important;
+}
+
 #sidebar{
     text-align: center;
 }
@@ -325,6 +329,7 @@
       margin-right: 10px;
       right: 0px;
       transition: .5s ease;
+      z-index: 2;
   }
 
   #hamburgerdiv-issues.open {
