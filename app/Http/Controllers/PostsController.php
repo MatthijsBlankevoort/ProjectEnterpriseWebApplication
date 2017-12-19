@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Like;
 use App\Post;
+use App\Comment;
 use Image;
 use Storage;
 
