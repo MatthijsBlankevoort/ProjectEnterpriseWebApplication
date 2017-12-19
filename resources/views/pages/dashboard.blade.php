@@ -11,8 +11,8 @@
 
 			<div class="col col-lg-4 col-md-6 col-sm-12">
 				<div class="card text-black mb-3" style="max-width: 20rem;">
-					<div class="card-header bg-primary">
-
+					<div class="card-header text-white text-center bg-primary">
+						<h6> {{$post->category}} </h6>
 					</div>
 					@if ($post->image)
 						<a href="/images/{{$post->image}}"><img alt="Great Idea" class="card-img-top cardimage" src="{{ asset('assets/images/' . $post->image) }}" width="100%"></a>
@@ -43,7 +43,6 @@
 								<h1>{{$post->likes}}</h1>
 								<p class="text-primary">Created on {{$post->created_at}}</p>
 							</div>
-							<span class="badge badge-pill badge-primary">{{$post->category}}</span>
 						</div>
 					</div>
 				</div>
