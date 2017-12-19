@@ -203,6 +203,30 @@ class PostsController extends Controller
      return view('pages/dashboard')->with('posts', $posts)->with('likes', $likeArr);
     }
 
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function storeComment(Request $request)
+	{
+
+		$comment = new Comment;
+		$comment->post_id = $request->post_id;
+		$comment->user_id = 2;
+		$comment->comment = $request->comment_content;
+
+		$comment->save();
+
+
+
+
+
+		return redirect('/')->with('success', 'Comment Created');
+	}
+
     /**
      * @param $id
      *

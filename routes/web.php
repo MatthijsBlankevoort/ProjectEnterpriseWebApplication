@@ -31,3 +31,5 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/submitpost/createComment', 'PostsController@storeComment');
+Route::get('/comments/{id}', 'PostsController@getComments');
