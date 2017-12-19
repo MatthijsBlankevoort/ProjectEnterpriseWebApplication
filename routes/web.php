@@ -12,10 +12,23 @@
 */
 
 Route::get('/', 'PostsController@index');
+Route::get('/sorted', 'PostsController@sortBy');
 Route::get('/createpost', 'PostsController@create');
 
-Route::resource('profile', 'ProfilesController');
+Route::get('/profile', 'ProfilesController@index');
+Route::get('/profile/edit', 'ProfilesController@edit');
+Route::post('/profile/edit', 'ProfilesController@update');
+
+
+Route::get('/like/insert/{id}','LikesController@store');
+Route::get('/like/update/{id}','LikesController@update');
+//Route::resource('Likes', 'LikesController');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
+Route::resource('posts', 'PostsController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

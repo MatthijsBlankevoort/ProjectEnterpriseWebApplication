@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('content')
 <div class="container">
 	<div class="row">
@@ -15,9 +15,9 @@
 					</div>
 					<!-- If user has slack, display the slack icon behind his name -->
 					<h6 class="card-title">
-						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i> First Name Last Name</h6>
-							<h1>Name: {{$user->name}} </h1><br>
-							<h1>Email: {{$user->email}}</h1>
+						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i></h6>
+							<h4 class="md-1">Name: {{ Auth::user()->name }} </h4>
+							<h4>Email: {{ Auth::user()->email }}</h4>
 					<hr>
 					<h6>Role</h6>
 					<p class="card-text small">Software Engineer</p>
@@ -37,12 +37,18 @@
 						</div>
 					</div>
 					<hr>
-		
-					<div class="col-md-4 offset-md-4 mb-4">
-						<button href="/profile/edit" class="btn btn-primary animated fadeInUp">
-							<i class="fa fa-edit" aria-hidden="true"></i> Edit Profile</button>
-					</div>
 
+					<div class="col-md-8 offset-md-2 mb-4">
+						<a href="/profile/edit" class="btn btn-primary mt-1 animated fadeInUp">
+							<i class="fa fa-edit" aria-hidden="true"></i> Edit Profile
+						</a>
+						<a href="/profile/edit" class="btn btn-primary mt-1 animated fadeInUp">
+							<i class="fa fa-bell" aria-hidden="true"></i> Your Subscriptions
+						</a>
+						<a href="/profile/edit" class="btn btn-primary mt-1 animated fadeInUp">
+							<i class="fa fa-paper-plane" aria-hidden="true"></i> Your Posts
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
