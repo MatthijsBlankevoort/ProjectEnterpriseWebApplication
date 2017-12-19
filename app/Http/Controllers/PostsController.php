@@ -202,4 +202,14 @@ class PostsController extends Controller
      $likeArr=array_flatten($likes->toArray());
      return view('pages/dashboard')->with('posts', $posts)->with('likes', $likeArr);
     }
+
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function getComments($id){
+        $comments = \App\Comment::where('post_id', $id)->get();
+        return $comments->toJson();
+    }
 }
