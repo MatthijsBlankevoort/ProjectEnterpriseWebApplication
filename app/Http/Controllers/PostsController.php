@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
  use Storage;
 class PostsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -95,6 +101,10 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+
+        if(auth()->user()->id !== $post->user_id) {
+          return redirect('/home')->with('error', 'Unauthorized Page');
+        }
         return view('pages.edit')->with('post', $post);
     }
 
