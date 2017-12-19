@@ -61,6 +61,13 @@
                         <div class="modal-body" id="modalBody">
                             {{$post->post_text}}
                         </div>
+						<div class="comment comment-form">
+							<form method="post" action="/submitpost/createComment">
+								<input type="hidden" name="post_id" value="80">
+								<textarea name="comment_content" id="" class="comment-content"></textarea>
+								<input name="submit" value="verzend" type="submit">
+							</form>
+						</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
                         </div>
