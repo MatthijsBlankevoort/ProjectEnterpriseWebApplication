@@ -1,4 +1,6 @@
 @extends('layouts.app') @section('content')
+
+<h1 id="likes"></h1>
 <div class="container">
 	<div class="row">
 
@@ -34,13 +36,13 @@
                                 @else
 
                                     @if(!in_array($post->id, $likes))
-                                    <a href="{{action('LikesController@store',$post)}}" class="btn fa fa-thumbs-up fa-2x"></a>
+                                    <a href="#" class="upvote vote btn fa fa-thumbs-up fa-2x" data-id="{{$post->id}}"></a>
                                     @endif
                                     @if(in_array($post->id, $likes))
-                                    <a href="{{action('LikesController@update',$post)}}" class="btn fa fa-thumbs-down fa-2x"></a>
+									<a href="#" class="downvote vote btn fa fa-thumbs-down fa-2x" data-id="{{$post->id}}"></a>
 								    @endif
                                 @endguest
-								<h1>{{$post->likes}}</h1>
+								<h1 data-id="{{$post->id}}">{{$post->likes}}</h1>
 								<p class="text-primary">Created on {{$post->created_at}}</p>
 							</div>
 							<span class="badge badge-pill badge-primary">{{$post->category}}</span>
