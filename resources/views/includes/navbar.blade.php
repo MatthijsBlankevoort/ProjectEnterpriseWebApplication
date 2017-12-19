@@ -31,7 +31,7 @@
 
             <hr>
             <a href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
+                  onclick="event.preventDefault();  
                         document.getElementById('logout-form').submit();">
                             Logout
             </a>
@@ -45,7 +45,7 @@
 
       </div>
 
-      <!-- ---------------------------------------------------->
+  
     @guest
 
     @else
