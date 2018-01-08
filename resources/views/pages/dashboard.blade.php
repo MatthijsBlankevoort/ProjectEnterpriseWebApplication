@@ -70,7 +70,6 @@
 						</div>
 						<div class="comment comment-section">
 							<h3>comments</h3>
-							<p>haal comments van {{$post->id}}</p>
 
 
 							@foreach($comments as $comment)
