@@ -63,10 +63,20 @@
                         </div>
 						<div class="comment comment-form">
 							<form method="post" action="/submitpost/createComment">
-								<input type="hidden" name="post_id" value="80">
+								<input type="hidden" name="post_id" value="{{$post->id}}">
 								<textarea name="comment_content" id="" class="comment-content"></textarea>
 								<input name="submit" type="submit">
 							</form>
+						</div>
+						<div class="comment comment-section">
+							<h3>comments</h3>
+
+
+							@foreach($comments as $comment)
+								@if($post->id == $comment->post_id)
+									<p class="comment">{{$comment->comment}}</p>
+								@endif
+							@endforeach
 						</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
