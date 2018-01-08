@@ -224,10 +224,6 @@ class PostsController extends Controller
 
 		$comment->save();
 
-
-
-
-
 		return redirect('/')->with('success', 'Comment Created');
 	}
 

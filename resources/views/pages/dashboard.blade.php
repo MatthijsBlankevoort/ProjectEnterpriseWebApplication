@@ -63,9 +63,9 @@
                         </div>
 						<div class="comment comment-form">
 							<form method="post" action="/submitpost/createComment">
-								<input type="hidden" name="post_id" value="80">
+								<input type="hidden" name="post_id" value="{{$post->id}}">
 								<textarea name="comment_content" id="" class="comment-content"></textarea>
-								<input name="submit" value="verzend" type="submit">
+								<input name="submit" type="submit">
 							</form>
 						</div>
 						<div class="comment comment-section">
