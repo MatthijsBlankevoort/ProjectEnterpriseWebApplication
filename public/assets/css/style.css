@@ -47,7 +47,9 @@
 }
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-    transition: margin-left .5s;
+    /* transition: margin-left .5s;   */
+    transition: margin .5s;
+    
     padding: 20px;
 }
 
@@ -299,6 +301,8 @@
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+
 
   #issues-icon.open span:nth-child(2) {
     opacity: 1;

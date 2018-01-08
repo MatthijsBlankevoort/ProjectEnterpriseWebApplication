@@ -23,7 +23,6 @@ Route::post('/profile/edit', 'ProfilesController@update');
 Route::get('/getlikes', 'PostsController@getLikes');
 Route::post('/like/insert','LikesController@store');
 Route::post('/like/update','LikesController@update');
-//Route::resource('Likes', 'LikesController');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');
