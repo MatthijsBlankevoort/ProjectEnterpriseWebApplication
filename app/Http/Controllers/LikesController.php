@@ -37,11 +37,17 @@ class LikesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id, Request $request)
+    public function store(Request $request)
     {
+
+       //Validate that the required information are filled in.
+       $this->validate($request, [
+            'id' => 'required'
+        ]);
 
         $Like = new Like;
         $Post = new Post;
+        $id = $request->id;
 
         $Like->user_id = auth()->user()->id;
         $Like->post_id = $id;
@@ -82,9 +88,11 @@ class LikesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
        $currentUser = auth()->user()->id;
+       $id = $request->id;
+
        DB::table('posts')->where('id','=', $id)->decrement('likes');
        DB::table('post_vote')->where('post_id','=',$id)->where('user_id', '=', $currentUser)->delete();
        return redirect('/');
