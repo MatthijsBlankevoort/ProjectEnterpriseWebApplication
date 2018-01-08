@@ -68,6 +68,17 @@
 								<input name="submit" value="verzend" type="submit">
 							</form>
 						</div>
+						<div class="comment comment-section">
+							<h3>comments</h3>
+							<p>haal comments van {{$post->id}}</p>
+
+
+							@foreach($comments as $comment)
+								@if($post->id == $comment->post_id)
+									<p class="comment">{{$comment->comment}}</p>
+								@endif
+							@endforeach
+						</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
                         </div>
