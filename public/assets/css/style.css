@@ -33,7 +33,7 @@
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    left: 25px;
     font-size: 36px;
     margin-left: 50px;
 }
@@ -175,6 +175,7 @@
   height: 80px;
 }
 
+
 .img-circle {
   width: 100px;
   height: 100px;
@@ -182,10 +183,11 @@
 }
 
 .dropdown {
-  margin-left: 60%;
-
-
+  margin-top: 30px;
+  margin-left: 20%;
 }
+
+
 
 
 /*CSS for the issues on the right */
@@ -225,11 +227,6 @@
 
 #issueslist{
     text-align: center;
-}
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main-right {
-    transition: margin-right .5s;
-    padding: 20px;
 }
 
 #hamburger-right{
@@ -326,6 +323,7 @@
   }
 
   #hamburgerdiv-issues {
+      position: fixed;
       margin-right: 10px;
       right: 0px;
       transition: .5s ease;
@@ -337,4 +335,3 @@
       right: 0px;
       transition: .5s ease;
   }
-

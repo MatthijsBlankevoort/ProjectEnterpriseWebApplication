@@ -4,8 +4,7 @@
 
 @endif
 
-<nav class="navbar sticky-top navbar-light bg-faded">
-    <div id="hamburgerdiv" class="fixedtop">
+    <div id="hamburgerdiv">
         <div id="nav-icon" onclick="openNav()">
         <span></span>
         <span></span>
@@ -64,6 +63,8 @@
         @endif
     @endguest
 
+    
+
 
       <!-- <div class="form-group" style="width: 10%;">
         <label for="SortBy">Sort By</label>
@@ -105,4 +106,3 @@
 
 
     </div> -->
-</nav>

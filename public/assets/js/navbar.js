@@ -14,15 +14,15 @@ function closeNav() {
 }
 function openIssues() {
     document.getElementById("issueslist").style.width = "375px";
-    // document.getElementById("hamburgerdiv").style.marginLeft = "250px";
-    document.getElementById("issues-icon").setAttribute( "onclick", "closeNav()");
-    document.getElementById("main-right").style.marginLeft = "375px";
+    // document.getElementById("hamburgerdiv").style.marginRight = "250px";
+    document.getElementById("issues-icon").setAttribute( "onclick", "closeIssues()");
+    document.getElementById("main").style.marginRight = "375px";
 }
 function closeIssues() {
     document.getElementById("issueslist").style.width = "0";
-    // document.getElementById("hamburgerdiv").style.marginLeft = "0px";
-    document.getElementById("issues-icon").setAttribute( "onclick", "openNav()");
-    document.getElementById("main-right").style.marginLeft = "0px";
+    // document.getElementById("hamburgerdiv").style.marginRight = "0px";
+    document.getElementById("issues-icon").setAttribute( "onclick", "openIssues()");
+    document.getElementById("main").style.marginRight = "0px";
 
 
 }
