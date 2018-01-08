@@ -55,6 +55,12 @@
 
 					<div class="col-md-6 offset-md-3 col-sm-12 pt-3 pb-3">
 						<div class="input-group">
+							<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot&client_id=276437764294.276640890055"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+						</div>
+					</div>
+
+					<div class="col-md-6 offset-md-3 col-sm-12 pt-3 pb-3">
+						<div class="input-group">
 							<span class="input-group-addon">
 								<i class="fa fa-key" aria-hidden="true"></i>
 							</span>

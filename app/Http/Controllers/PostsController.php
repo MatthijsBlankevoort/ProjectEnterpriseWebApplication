@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Slack\Message\{Attachment, AttachmentBuilder, AttachmentField};
 
 use App\Like;
 use App\Post;
@@ -81,6 +82,29 @@ class PostsController extends Controller
         //$post->likes = self::getLikes($request->post_id);
         $post->likes = 0;
         $post->save();
+
+        //Create a Slack instance
+        $slack = \React\Eventloop\Factory::create();
+        $client = new \Slack\ApiClient($slack);
+        $client->setToken($_ENV['SLACK_TOKEN']);
+        $slack->run();
+
+
+        //If post is a project
+        if ($post->post_type == 0) {
+
+            $client->getChannelById($_ENV['SLACK_CHANNELS_PROJECTS'])->then(function (\Slack\Channel $channel) use ($client) {
+                $client->send('Hello from PHP to Projects!', $channel);
+            });
+
+        //Else post is an issue
+        } else {
+
+            $client->getChannelById($_ENV['SLACK_CHANNELS_ISSUES'])->then(function (\Slack\Channel $channel) use ($client) {
+                $client->send('Hello from PHP to Issues!', $channel);
+            });
+
+        }
 
         $posts = \App\Post::all();
 
