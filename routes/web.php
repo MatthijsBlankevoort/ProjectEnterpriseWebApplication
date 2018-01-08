@@ -20,9 +20,9 @@ Route::get('/profile/edit', 'ProfilesController@edit');
 Route::post('/profile/edit', 'ProfilesController@update');
 
 
-Route::get('/like/insert/{id}','LikesController@store');
-Route::get('/like/update/{id}','LikesController@update');
-//Route::resource('Likes', 'LikesController');
+Route::get('/getlikes', 'PostsController@getLikes');
+Route::post('/like/insert','LikesController@store');
+Route::post('/like/update','LikesController@update');
 
 Route::get('/submitpost', 'CategoriesController@getAll');
 Route::post('/submitpost/create', 'PostsController@store');

@@ -1,6 +1,5 @@
-@extends('layouts.app')
-@section('content')
-    <div id="main">
+@extends('layouts.app') @section('content')
+<div id="main">
 	<div class="container">
 		<form action="/submitpost/create" method="post" enctype="multipart/form-data">
 			<div class="form-group w-50">
@@ -11,7 +10,7 @@
 				<label for="categoryselect">Select Category</label>
 				<select name="category" class="form-control" id="category">
 					@foreach ($categories as $category)
-						<option value="{{$category->title}}">{{$category->title}}</option>
+					<option value="{{$category->title}}">{{$category->title}}</option>
 					@endforeach
 
 				</select>
@@ -23,14 +22,12 @@
 				<div class="inline-radio">
 					<div class="form-check form-check-inline">
 						<label class="form-check-label radio-inline">
-							<input type="radio" class="form-check-input" name="post_type" id="optionsRadios1" value="0" checked>
-							Standard post
+							<input type="radio" class="form-check-input" name="post_type" id="optionsRadios1" value="0" checked> Standard post
 						</label>
 					</div>
 					<div class="form-check form-check-inline">
 						<label class="form-check-label">
-							<input type="radio" class="form-check-input" name="post_type" id="optionsRadios2" value="1">
-							Issue
+							<input type="radio" class="form-check-input" name="post_type" id="optionsRadios2" value="1"> Issue
 						</label>
 					</div>
 				</div>
@@ -42,13 +39,13 @@
 				<textarea name="post_text" class="form-control" id="article-ckeditor" rows="9"></textarea>
 			</div>
 
-      <div class="form-group">
-        {{Form::file('featured_image')}}
-      </div>
+			<div class="form-group">
+				{{Form::file('featured_image')}}
+			</div>
 
-      <div class="form-group">
-  			<button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
 		</form>
 	</div>
 

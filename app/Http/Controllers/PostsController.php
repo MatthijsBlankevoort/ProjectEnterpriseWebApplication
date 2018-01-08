@@ -104,10 +104,11 @@ class PostsController extends Controller
 
     }
 
-    public function getLikes($id)
+    public function getLikes(Request $request)
     {
-        $Like = \App\Like::get($id)->count();
-        return $Like;
+        $Like = \App\Like::get()->count();
+
+        return response()->json(['likes' => $Like]);
     }
 
     /**

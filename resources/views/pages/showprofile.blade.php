@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.app') @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col align-self-center">
@@ -15,9 +14,10 @@
 					</div>
 					<!-- If user has slack, display the slack icon behind his name -->
 					<h6 class="card-title">
-						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i></h6>
-							<h4 class="md-1">Name: {{ Auth::user()->name }} </h4>
-							<h4>Email: {{ Auth::user()->email }}</h4>
+						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i>
+					</h6>
+					<h4 class="md-1">Name: {{ Auth::user()->name }} </h4>
+					<h4>Email: {{ Auth::user()->email }}</h4>
 					<hr>
 					<h6>Role</h6>
 					<p class="card-text small">Software Engineer</p>
