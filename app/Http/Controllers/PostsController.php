@@ -24,7 +24,9 @@ class PostsController extends Controller
         $likes = Like::select('post_id')->get();
         $likeArr=array_flatten($likes->toArray());
 
-        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr);
+        $comments = Comment::all();
+
+        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr)->with('comments', $comments);
     }
 
     public static function getIssues()

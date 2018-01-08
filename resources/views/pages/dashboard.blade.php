@@ -22,7 +22,7 @@
 					@endif
 
 			<div class="card-body">
-						<h4 class="card-title">{{$post->title}}</h4>
+						<h4 class="card-title">{{$post->title}} {{$post->id}}</h4>
 						<p class="card-text">{!! $snippet !!}</p>
 						<div class="card-body text-right">
 							<a class="text-right" data-target="#myModal{{$post->id}}" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal"
@@ -59,7 +59,7 @@
                             </button>
                         </div>
                         <div class="modal-body" id="modalBody">
-                            {{$post->post_text}}
+                            {!! $post->post_text !!}
                         </div>
 						<div class="comment comment-form">
 							<form method="post" action="/submitpost/createComment">
@@ -67,6 +67,17 @@
 								<textarea name="comment_content" id="" class="comment-content"></textarea>
 								<input name="submit" value="verzend" type="submit">
 							</form>
+						</div>
+						<div class="comment comment-section">
+							<h3>comments</h3>
+							<p>haal comments van {{$post->id}}</p>
+
+
+							@foreach($comments as $comment)
+								@if($post->id == $comment->post_id)
+									<p class="comment">{{$comment->comment}}</p>
+								@endif
+							@endforeach
 						</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
