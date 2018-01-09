@@ -7,11 +7,19 @@ use Illuminate\Http\Request;
 use App\Like;
 use App\Post;
 use App\Comment;
+use App\User;
 use Image;
 use Storage;
 
 class PostsController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +32,10 @@ class PostsController extends Controller
         $likes = Like::select('post_id')->get();
         $likeArr=array_flatten($likes->toArray());
 
-        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr);
+        $comments = Comment::all();
+        $users = User::select('id', 'name')->get();
+
+        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr)->with('comments', $comments)->with('users', $users);
     }
 
     public static function getIssues()
@@ -131,6 +142,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        if(auth()->user()->id !== $post->user_id) {
+          return redirect('/home')->with('error', 'Unauthorized Page');
+        }
         return view('pages.edit')->with('post', $post);
     }
 
@@ -202,7 +216,10 @@ class PostsController extends Controller
      $posts = \App\Post::orderBy('likes', 'desc')->get();
      $likes = Like::select('post_id')->get();
      $likeArr=array_flatten($likes->toArray());
-     return view('pages/dashboard')->with('posts', $posts)->with('likes', $likeArr);
+    $comments = Comment::all();
+    $users = User::select('id', 'name')->get();
+
+        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr)->with('comments', $comments)->with('users', $users);
     }
 
 
@@ -221,10 +238,6 @@ class PostsController extends Controller
 		$comment->comment = $request->comment_content;
 
 		$comment->save();
-
-
-
-
 
 		return redirect('/')->with('success', 'Comment Created');
 	}
