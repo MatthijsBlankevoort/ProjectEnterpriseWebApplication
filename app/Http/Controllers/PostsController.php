@@ -90,14 +90,34 @@ class PostsController extends Controller
 
         //$post->likes = self::getLikes($request->post_id);
         $post->likes = 0;
-        $post->save();
 
+        //Slack CURL 
+
+        //If post is a project
+
+        if ($post->post_type == 0) {
+            $ch_url = env("SLACK_HOOK_PROJECTS");
+            $message = array('payload' => json_encode(array('text' => 'New project: ' . $post->title . '  at the category ' . $post->category . '.')));
+
+        //Else post is an issue
+        } else {
+            $ch_url = env("SLACK_HOOK_ISSUES");
+            $message = array('payload' => json_encode(array('text' => 'New issue: ' . $post->title . ' at the category ' . $post->category . '.')));
+        }
+
+        $ch = curl_init($ch_url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
+        
+        $result = curl_exec($ch);
+
+        curl_close($ch);
+
+        $post->save();
         $posts = \App\Post::all();
 
-        //return view('pages/dashboard')->with('posts', $posts);
         return redirect('/');
-
-
     }
 
     public function alreadyLiked($id){
