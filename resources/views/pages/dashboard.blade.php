@@ -1,4 +1,5 @@
 @extends('layouts.app') @section('content')
+
 <div class="container">
 	<div class="row">
 
@@ -11,14 +12,11 @@
 
 			<div class="col col-lg-4 col-md-6 col-sm-12">
 				<div class="card text-black mb-3" style="max-width: 20rem;">
-					<div class="card-header bg-primary">
-						<h6 class="text-white text-center">
-							{{$post->category}}
-						</h6>
-
+					<div class="card-header text-white text-center bg-primary">
+						<h6> {{$post->category}} </h6>
 					</div>
 					@if ($post->image)
-						<a href="/assets/images/{{$post->image}}"><img alt="Great Idea" class="card-img-top cardimage" src="{{ asset('assets/images/' . $post->image) }}" width="100%"></a>
+						<a href="/images/{{$post->image}}"><img alt="Great Idea" class="card-img-top cardimage" src="{{ asset('assets/images/' . $post->image) }}" width="100%"></a>
 						@else
 					<img alt="Great Idea" class="card-img-top cardimage" src="http://pipsum.com/435x310.jpg" width="100%">
 					@endif
@@ -37,16 +35,15 @@
                                 @else
 
                                     @if(!in_array($post->id, $likes))
-                                    <a href="{{action('LikesController@store',$post)}}" class="btn fa fa-thumbs-up fa-2x"></a>
+                                    <a href="#" class="upvote vote btn fa fa-thumbs-up fa-2x" data-id="{{$post->id}}"></a>
                                     @endif
                                     @if(in_array($post->id, $likes))
-                                    <a href="{{action('LikesController@update',$post)}}" class="btn fa fa-thumbs-down fa-2x"></a>
-								    						@endif
+									<a href="#" class="downvote vote btn fa fa-thumbs-down fa-2x" data-id="{{$post->id}}"></a>
+								    @endif
                                 @endguest
-								<h1>{{$post->likes}}</h1>
+								<h1 data-id="{{$post->id}}">{{$post->likes}}</h1>
 								<p class="text-primary">Created on {{$post->created_at}}</p>
 							</div>
-							<span class="badge badge-pill badge-primary">{{$post->category}}</span>
 						</div>
 					</div>
 				</div>
@@ -62,8 +59,25 @@
                             </button>
                         </div>
                         <div class="modal-body" id="modalBody">
-                          {!!$post->post_text!!}
+                            {{$post->post_text}}
                         </div>
+						<div class="comment comment-form">
+							<form method="post" action="/submitpost/createComment">
+								<input type="hidden" name="post_id" value="{{$post->id}}">
+								<textarea name="comment_content" id="" class="comment-content"></textarea>
+								<input name="submit" type="submit">
+							</form>
+						</div>
+						<div class="comment comment-section">
+							<h3>comments</h3>
+
+
+							@foreach($comments as $comment)
+								@if($post->id == $comment->post_id)
+									<p class="comment">{{$comment->comment}}</p>
+								@endif
+							@endforeach
+						</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
                         </div>

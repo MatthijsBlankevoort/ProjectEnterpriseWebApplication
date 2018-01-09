@@ -33,7 +33,7 @@
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    left: 25px;
     font-size: 36px;
     margin-left: 50px;
 }
@@ -47,11 +47,12 @@
 }
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-    transition: margin-left .5s;
+    transition: margin .5s ease;
+    
     padding: 20px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+/* On smaller screens, where height is less than 45 0px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
@@ -175,6 +176,7 @@
   height: 80px;
 }
 
+
 .img-circle {
   width: 100px;
   height: 100px;
@@ -182,10 +184,11 @@
 }
 
 .dropdown {
-  margin-left: 60%;
-
-
+  margin-top: 30px;
+  margin-left: 20%;
 }
+
+
 
 
 /*CSS for the issues on the right */
@@ -225,11 +228,6 @@
 
 #issueslist{
     text-align: center;
-}
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main-right {
-    transition: margin-right .5s;
-    padding: 20px;
 }
 
 #hamburger-right{
@@ -303,6 +301,8 @@
     transform: rotate(45deg);
   }
 
+
+
   #issues-icon.open span:nth-child(2) {
     opacity: 1;
     -webkit-transform: rotate(45deg);
@@ -326,6 +326,7 @@
   }
 
   #hamburgerdiv-issues {
+      position: fixed;
       margin-right: 10px;
       right: 0px;
       transition: .5s ease;
@@ -337,4 +338,3 @@
       right: 0px;
       transition: .5s ease;
   }
-

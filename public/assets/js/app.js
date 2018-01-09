@@ -38,5 +38,4 @@ function closeIssues() {
     document.getElementById("issueslist").style.width = "0";
     document.getElementById("issues-icon").setAttribute( "onclick", "openIssues()");
     document.getElementById("main").style.marginRight = "0px";
-    document.getElementById("main").style.marginLeft = "0px";
 }
