@@ -13,9 +13,9 @@
 						</a>
 					</div>
 					<!-- If user has slack, display the slack icon behind his name -->
-					<h6 class="card-title">
-						<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i>
-					</h6>
+					{{--<h6 class="card-title">--}}
+						{{--<i class="fa fa-slack" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="This user has Slack!"></i>--}}
+					{{--</h6>--}}
 					<h4 class="md-1">Name: {{ Auth::user()->name }} </h4>
 					<h4>Email: {{ Auth::user()->email }}</h4>
 					<hr>
@@ -42,10 +42,7 @@
 						<a href="/profile/edit" class="btn btn-primary mt-1 animated fadeInUp">
 							<i class="fa fa-edit" aria-hidden="true"></i> Edit Profile
 						</a>
-						<a href="/profile/edit" class="btn btn-primary mt-1 animated fadeInUp">
-							<i class="fa fa-bell" aria-hidden="true"></i> Your Subscriptions
-						</a>
-						<a href="/profile/edit" class="btn btn-primary mt-1 animated fadeInUp">
+						<a href="/home/" class="btn btn-primary mt-1 animated fadeInUp">
 							<i class="fa fa-paper-plane" aria-hidden="true"></i> Your Posts
 						</a>
 					</div>

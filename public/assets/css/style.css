@@ -158,8 +158,13 @@
     margin-left: 7px;
     margin-top: 5px;
     margin-right: 10px;
+    word-wrap: break-word;
   }
-
+.comment-content {
+    width: 80%;
+    height: 8em;
+    resize: none;
+}
 .card-header-title {
     color: #ffffff;
     font-weight: bolder;
@@ -301,7 +306,11 @@
     transform: rotate(45deg);
   }
 
-
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1em;
+}
 
   #issues-icon.open span:nth-child(2) {
     opacity: 1;

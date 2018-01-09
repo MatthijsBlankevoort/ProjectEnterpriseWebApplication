@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Like;
 use App\Post;
 use App\Comment;
+use App\User;
 use Image;
 use Storage;
 
@@ -32,8 +33,9 @@ class PostsController extends Controller
         $likeArr=array_flatten($likes->toArray());
 
         $comments = Comment::all();
+        $users = User::select('id', 'name')->get();
 
-        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr)->with('comments', $comments);
+        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr)->with('comments', $comments)->with('users', $users);
     }
 
     public static function getIssues()
@@ -234,7 +236,10 @@ class PostsController extends Controller
      $posts = \App\Post::orderBy('likes', 'desc')->get();
      $likes = Like::select('post_id')->get();
      $likeArr=array_flatten($likes->toArray());
-     return view('pages/dashboard')->with('posts', $posts)->with('likes', $likeArr);
+    $comments = Comment::all();
+    $users = User::select('id', 'name')->get();
+
+        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr)->with('comments', $comments)->with('users', $users);
     }
 
 

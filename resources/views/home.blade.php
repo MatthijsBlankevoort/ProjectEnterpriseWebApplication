@@ -26,13 +26,14 @@
                           <div class ="col col-lg-6 col-md-12 col-sm-12">
 
 
-                          <div class="card text-black card-outline-primary mb-3 button" data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')" data-toggle="modal" href="#" >
+                          <div class="card text-black card-outline-primary mb-3 button">
+                              {{--<div data-target="#myModal" onclick="modal('{{$post->title}}', '{{$post->post_text}}')"  href="#" data-toggle="modal" class="card-header bg-primary">--}}
                               <div class="card-header bg-primary">
                                 <h6 class="text-white text-center">{{$post->title}}</h6>
                               </div>
                               <p>Title: {{$post->title}}</p>
                               <p>Created: {{$post->created_at}}</p>
-                              <div class="">
+                              <div class="button-container">
                                   {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => ''])!!}
                                   {{Form::hidden('_method', 'DELETE')}}
                                   {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
