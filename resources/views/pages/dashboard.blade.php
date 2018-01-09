@@ -59,7 +59,7 @@
                             </button>
                         </div>
                         <div class="modal-body" id="modalBody">
-                            {{$post->post_text}}
+                            {!!$post->post_text!!}
                         </div>
 						<div class="comment comment-form">
 							<form method="post" action="/submitpost/createComment">
