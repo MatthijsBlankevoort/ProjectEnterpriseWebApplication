@@ -4,7 +4,7 @@ $posts = \App\Http\Controllers\PostsController::getIssues();
 
  ?>
 
-      <div id="hamburgerdiv-issues" class="fixedtop">
+      <div id="hamburgerdiv-issues">
           <div id="issues-icon" onclick="openIssues()">
           <span></span>
           <span></span>

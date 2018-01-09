@@ -10,7 +10,6 @@
 
 
 
-
 			<fieldset class="form-group">
 				<legend>Post Type</legend>
 				<div class="inline-radio">

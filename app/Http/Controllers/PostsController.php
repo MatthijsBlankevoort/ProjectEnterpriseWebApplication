@@ -6,11 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Like;
 use App\Post;
+use App\Comment;
 use Image;
 use Storage;
 
 class PostsController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +31,9 @@ class PostsController extends Controller
         $likes = Like::select('post_id')->get();
         $likeArr=array_flatten($likes->toArray());
 
-        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr);
+        $comments = Comment::all();
+
+        return view('pages/dashboard')->with('posts', $posts)->with('likes',$likeArr)->with('comments', $comments);
     }
 
     public static function getIssues()
@@ -123,10 +133,11 @@ class PostsController extends Controller
 
     }
 
-    public function getLikes($id)
+    public function getLikes(Request $request)
     {
-        $Like = \App\Like::get($id)->count();
-        return $Like;
+        $Like = \App\Like::get()->count();
+
+        return response()->json(['likes' => $Like]);
     }
 
     /**
@@ -149,6 +160,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        if(auth()->user()->id !== $post->user_id) {
+          return redirect('/home')->with('error', 'Unauthorized Page');
+        }
         return view('pages.edit')->with('post', $post);
     }
 
@@ -221,5 +235,35 @@ class PostsController extends Controller
      $likes = Like::select('post_id')->get();
      $likeArr=array_flatten($likes->toArray());
      return view('pages/dashboard')->with('posts', $posts)->with('likes', $likeArr);
+    }
+
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function storeComment(Request $request)
+	{
+
+		$comment = new Comment;
+		$comment->post_id = $request->post_id;
+		$comment->user_id = 2;
+		$comment->comment = $request->comment_content;
+
+		$comment->save();
+
+		return redirect('/')->with('success', 'Comment Created');
+	}
+
+    /**
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function getComments($id){
+        $comments = \App\Comment::where('post_id', $id)->get();
+        return $comments->toJson();
     }
 }
