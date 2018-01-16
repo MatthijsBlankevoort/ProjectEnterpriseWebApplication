@@ -46,7 +46,6 @@ class LikesController extends Controller
         ]);
 
         $Like = new Like;
-        $Post = new Post;
         $id = $request->id;
 
         $Like->user_id = auth()->user()->id;
@@ -96,17 +95,5 @@ class LikesController extends Controller
        DB::table('posts')->where('id','=', $id)->decrement('likes');
        DB::table('post_vote')->where('post_id','=',$id)->where('user_id', '=', $currentUser)->delete();
        return redirect('/');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-
     }
 }

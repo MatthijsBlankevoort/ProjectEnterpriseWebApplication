@@ -84,13 +84,9 @@ class PostsController extends Controller
           $location = public_path('assets/images/' . $filename);
           Image::make($image)->save($location);
 
-          //->resize(200, 100)
-
           $post->image = $filename;
         }
 
-
-        //$post->likes = self::getLikes($request->post_id);
         $post->likes = 0;
 
         //Slack CURL 
@@ -127,12 +123,7 @@ class PostsController extends Controller
         $user = auth()->user()->id;
         $userlikes = new Like;
 
-        if($user == $userlikes->user_id && $userlikes->post_id != $id){
-            return true;
-        } else {
-            return false;
-        }
-
+        return $user == $userlikes->user_id && $userlikes->post_id != $id;
     }
 
     public function getLikes(Request $request)
@@ -140,17 +131,6 @@ class PostsController extends Controller
         $Like = \App\Like::get()->count();
 
         return response()->json(['likes' => $Like]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -254,7 +234,7 @@ class PostsController extends Controller
 
 		$comment = new Comment;
 		$comment->post_id = $request->post_id;
-		$comment->user_id = 2;
+		$comment->user_id = auth()->user()->id;
 		$comment->comment = $request->comment_content;
 
 		$comment->save();
@@ -271,4 +251,6 @@ class PostsController extends Controller
         $comments = \App\Comment::where('post_id', $id)->get();
         return $comments->toJson();
     }
+
+    
 }
